@@ -1,0 +1,2775 @@
+{
+  "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+  "pkg": {
+    "name": "ant-design-pro",
+    "version": "6.0.0-beta.1",
+    "private": true,
+    "description": "An out-of-box UI solution for enterprise applications",
+    "scripts": {
+      "analyze": "cross-env ANALYZE=1 max build",
+      "build": "max build",
+      "deploy": "npm run build && npm run gh-pages",
+      "dev": "HOST=127.0.0.1 PORT=3000 npm run start:dev",
+      "gh-pages": "gh-pages -d dist",
+      "i18n-remove": "pro i18n-remove --locale=zh-CN --write",
+      "postinstall": "max setup",
+      "lint": "npm run lint:js && npm run lint:prettier && npm run tsc",
+      "lint-staged": "lint-staged",
+      "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx ",
+      "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty src ",
+      "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty src",
+      "lint:prettier": "prettier -c --write \"src/**/*\" --end-of-line auto",
+      "openapi": "max openapi",
+      "prettier": "prettier -c --write \"src/**/*\"",
+      "serve": "umi-serve",
+      "start": "cross-env UMI_ENV=dev max dev",
+      "start:dev": "cross-env REACT_APP_ENV=dev MOCK=none UMI_ENV=dev max dev",
+      "start:no-mock": "cross-env MOCK=none UMI_ENV=dev max dev",
+      "start:pre": "cross-env REACT_APP_ENV=pre UMI_ENV=dev max dev",
+      "start:test": "cross-env REACT_APP_ENV=test MOCK=none UMI_ENV=dev max dev",
+      "tsc": "tsc --noEmit"
+    },
+    "lint-staged": {
+      "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
+      "**/*.{js,jsx,tsx,ts,less,md,json}": [
+        "prettier --write"
+      ]
+    },
+    "browserslist": [
+      "> 1%",
+      "last 2 versions",
+      "not ie <= 10"
+    ],
+    "dependencies": {
+      "@ant-design/icons": "^4.7.0",
+      "@ant-design/pro-components": "^2.3.13",
+      "@umijs/route-utils": "^2.1.3",
+      "antd": "^4.23.3",
+      "classnames": "^2.3.2",
+      "echarts": "^5.4.1",
+      "echarts-for-react": "^3.0.2",
+      "lodash": "^4.17.21",
+      "moment": "^2.29.4",
+      "omit.js": "^2.0.2",
+      "rc-menu": "^9.6.4",
+      "rc-util": "^5.24.4",
+      "react": "^17.0.0",
+      "react-dev-inspector": "^1.8.1",
+      "react-dom": "^17.0.0",
+      "react-helmet-async": "^1.3.0"
+    },
+    "devDependencies": {
+      "@ant-design/pro-cli": "^2.1.0",
+      "@types/classnames": "^2.3.1",
+      "@types/express": "^4.17.14",
+      "@types/history": "^4.7.11",
+      "@types/lodash": "^4.14.186",
+      "@types/react": "^17.0.0",
+      "@types/react-dom": "^17.0.0",
+      "@types/react-helmet": "^6.1.5",
+      "@umijs/fabric": "^2.11.1",
+      "@umijs/max": "^4.0.24",
+      "@umijs/openapi": "^1.7.0",
+      "cross-env": "^7.0.3",
+      "cross-port-killer": "^1.4.0",
+      "detect-installer": "^1.0.2",
+      "eslint": "^7.32.0",
+      "gh-pages": "^3.2.0",
+      "lint-staged": "^10.0.0",
+      "mockjs": "^1.1.0",
+      "prettier": "^2.7.1",
+      "swagger-ui-dist": "^4.14.2",
+      "typescript": "^4.8.4",
+      "umi-presets-pro": "^1.0.5",
+      "umi-serve": "^1.9.11"
+    },
+    "engines": {
+      "node": ">=12.0.0"
+    }
+  },
+  "pkgPath": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/package.json",
+  "plugins": {
+    "./node_modules/@umijs/core/dist/service/servicePlugin": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "preset",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/core/dist/service/servicePlugin.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/core/dist/service/servicePlugin",
+      "key": "servicePlugin"
+    },
+    "@umijs/preset-umi": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 11
+      },
+      "enableBy": "register",
+      "type": "preset",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/index.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "@umijs/preset-umi",
+      "key": "umi"
+    },
+    "./node_modules/@umijs/max/dist/preset": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "register",
+      "type": "preset",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/max/dist/preset.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/max/dist/preset",
+      "key": "preset"
+    },
+    "umi-presets-pro": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "onStart": [
+            1
+          ]
+        },
+        "register": 2
+      },
+      "enableBy": "register",
+      "type": "preset",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/umi-presets-pro/dist/index.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "umi-presets-pro",
+      "key": "umiPresetsPro"
+    },
+    "./node_modules/@umijs/preset-umi/dist/registerMethods": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "onStart": [
+            0
+          ]
+        },
+        "register": 2
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/registerMethods.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/registerMethods",
+      "key": "registerMethods"
+    },
+    "@umijs/did-you-know": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "onStart": [
+            0
+          ]
+        },
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/did-you-know/dist/plugin.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "@umijs/did-you-know",
+      "key": "umijsDidYouKnow"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/404/404": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyRoutes": [
+            0
+          ]
+        },
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/404/404.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/404/404",
+      "key": "404"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/appData/appData": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyAppData": [
+            35
+          ]
+        },
+        "register": 17
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/appData/appData.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/appData/appData",
+      "key": "appData"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/appData/umiInfo": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/appData/umiInfo.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/appData/umiInfo",
+      "key": "umiInfo"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/check/check": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "onCheckConfig": [
+            0
+          ],
+          "onCheck": [
+            0
+          ]
+        },
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/check/check.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/check/check",
+      "key": "check"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/check/babel722": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "onCheck": [
+            0
+          ]
+        },
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/check/babel722.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/check/babel722",
+      "key": "babel722"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/codeSplitting/codeSplitting": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/codeSplitting/codeSplitting.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/codeSplitting/codeSplitting",
+      "key": "codeSplitting"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/configPlugins/configPlugins": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyConfig": [
+            0
+          ]
+        },
+        "register": 7
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/configPlugins/configPlugins.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/configPlugins/configPlugins",
+      "key": "configPlugins"
+    },
+    "virtual: config-title": {
+      "id": "virtual: config-title",
+      "key": "title",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-styles": {
+      "id": "virtual: config-styles",
+      "key": "styles",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-scripts": {
+      "id": "virtual: config-scripts",
+      "key": "scripts",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-routes": {
+      "id": "virtual: config-routes",
+      "key": "routes",
+      "config": {
+        "onChange": "regenerateTmpFiles"
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-routeLoader": {
+      "id": "virtual: config-routeLoader",
+      "key": "routeLoader",
+      "config": {
+        "default": {
+          "moduleType": "esm"
+        }
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-reactRouter5Compat": {
+      "id": "virtual: config-reactRouter5Compat",
+      "key": "reactRouter5Compat",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-presets": {
+      "id": "virtual: config-presets",
+      "key": "presets",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-plugins": {
+      "id": "virtual: config-plugins",
+      "key": "plugins",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-npmClient": {
+      "id": "virtual: config-npmClient",
+      "key": "npmClient",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-mountElementId": {
+      "id": "virtual: config-mountElementId",
+      "key": "mountElementId",
+      "config": {
+        "default": "root"
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-metas": {
+      "id": "virtual: config-metas",
+      "key": "metas",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-links": {
+      "id": "virtual: config-links",
+      "key": "links",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-historyWithQuery": {
+      "id": "virtual: config-historyWithQuery",
+      "key": "historyWithQuery",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-history": {
+      "id": "virtual: config-history",
+      "key": "history",
+      "config": {
+        "default": {
+          "type": "browser"
+        }
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-headScripts": {
+      "id": "virtual: config-headScripts",
+      "key": "headScripts",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-esbuildMinifyIIFE": {
+      "id": "virtual: config-esbuildMinifyIIFE",
+      "key": "esbuildMinifyIIFE",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-conventionRoutes": {
+      "id": "virtual: config-conventionRoutes",
+      "key": "conventionRoutes",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-conventionLayout": {
+      "id": "virtual: config-conventionLayout",
+      "key": "conventionLayout",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-base": {
+      "id": "virtual: config-base",
+      "key": "base",
+      "config": {
+        "default": "/"
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-analyze": {
+      "id": "virtual: config-analyze",
+      "key": "analyze",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-writeToDisk": {
+      "id": "virtual: config-writeToDisk",
+      "key": "writeToDisk",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-transformRuntime": {
+      "id": "virtual: config-transformRuntime",
+      "key": "transformRuntime",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-theme": {
+      "id": "virtual: config-theme",
+      "key": "theme",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-targets": {
+      "id": "virtual: config-targets",
+      "key": "targets",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-svgr": {
+      "id": "virtual: config-svgr",
+      "key": "svgr",
+      "config": {
+        "default": {}
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-svgo": {
+      "id": "virtual: config-svgo",
+      "key": "svgo",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-stylusLoader": {
+      "id": "virtual: config-stylusLoader",
+      "key": "stylusLoader",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-styleLoader": {
+      "id": "virtual: config-styleLoader",
+      "key": "styleLoader",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-srcTranspilerOptions": {
+      "id": "virtual: config-srcTranspilerOptions",
+      "key": "srcTranspilerOptions",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-srcTranspiler": {
+      "id": "virtual: config-srcTranspiler",
+      "key": "srcTranspiler",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-sassLoader": {
+      "id": "virtual: config-sassLoader",
+      "key": "sassLoader",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-runtimePublicPath": {
+      "id": "virtual: config-runtimePublicPath",
+      "key": "runtimePublicPath",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-purgeCSS": {
+      "id": "virtual: config-purgeCSS",
+      "key": "purgeCSS",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-publicPath": {
+      "id": "virtual: config-publicPath",
+      "key": "publicPath",
+      "config": {
+        "default": "/"
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-proxy": {
+      "id": "virtual: config-proxy",
+      "key": "proxy",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-postcssLoader": {
+      "id": "virtual: config-postcssLoader",
+      "key": "postcssLoader",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-outputPath": {
+      "id": "virtual: config-outputPath",
+      "key": "outputPath",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-normalCSSLoaderModules": {
+      "id": "virtual: config-normalCSSLoaderModules",
+      "key": "normalCSSLoaderModules",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-mfsu": {
+      "id": "virtual: config-mfsu",
+      "key": "mfsu",
+      "config": {
+        "default": {
+          "strategy": "eager"
+        }
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-mdx": {
+      "id": "virtual: config-mdx",
+      "key": "mdx",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-manifest": {
+      "id": "virtual: config-manifest",
+      "key": "manifest",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-lessLoader": {
+      "id": "virtual: config-lessLoader",
+      "key": "lessLoader",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-jsMinifierOptions": {
+      "id": "virtual: config-jsMinifierOptions",
+      "key": "jsMinifierOptions",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-jsMinifier": {
+      "id": "virtual: config-jsMinifier",
+      "key": "jsMinifier",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-inlineLimit": {
+      "id": "virtual: config-inlineLimit",
+      "key": "inlineLimit",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-ignoreMomentLocale": {
+      "id": "virtual: config-ignoreMomentLocale",
+      "key": "ignoreMomentLocale",
+      "config": {
+        "default": true
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-https": {
+      "id": "virtual: config-https",
+      "key": "https",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-hash": {
+      "id": "virtual: config-hash",
+      "key": "hash",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-forkTSChecker": {
+      "id": "virtual: config-forkTSChecker",
+      "key": "forkTSChecker",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-fastRefresh": {
+      "id": "virtual: config-fastRefresh",
+      "key": "fastRefresh",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-extraPostCSSPlugins": {
+      "id": "virtual: config-extraPostCSSPlugins",
+      "key": "extraPostCSSPlugins",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-extraBabelPresets": {
+      "id": "virtual: config-extraBabelPresets",
+      "key": "extraBabelPresets",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-extraBabelPlugins": {
+      "id": "virtual: config-extraBabelPlugins",
+      "key": "extraBabelPlugins",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-extraBabelIncludes": {
+      "id": "virtual: config-extraBabelIncludes",
+      "key": "extraBabelIncludes",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-externals": {
+      "id": "virtual: config-externals",
+      "key": "externals",
+      "config": {
+        "default": {}
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-esm": {
+      "id": "virtual: config-esm",
+      "key": "esm",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-devtool": {
+      "id": "virtual: config-devtool",
+      "key": "devtool",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-depTranspiler": {
+      "id": "virtual: config-depTranspiler",
+      "key": "depTranspiler",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-define": {
+      "id": "virtual: config-define",
+      "key": "define",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-deadCode": {
+      "id": "virtual: config-deadCode",
+      "key": "deadCode",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-cssPublicPath": {
+      "id": "virtual: config-cssPublicPath",
+      "key": "cssPublicPath",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-cssMinifierOptions": {
+      "id": "virtual: config-cssMinifierOptions",
+      "key": "cssMinifierOptions",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-cssMinifier": {
+      "id": "virtual: config-cssMinifier",
+      "key": "cssMinifier",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-cssLoaderModules": {
+      "id": "virtual: config-cssLoaderModules",
+      "key": "cssLoaderModules",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-cssLoader": {
+      "id": "virtual: config-cssLoader",
+      "key": "cssLoader",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-copy": {
+      "id": "virtual: config-copy",
+      "key": "copy",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-checkDepCssModules": {
+      "id": "virtual: config-checkDepCssModules",
+      "key": "checkDepCssModules",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-chainWebpack": {
+      "id": "virtual: config-chainWebpack",
+      "key": "chainWebpack",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-cacheDirectoryPath": {
+      "id": "virtual: config-cacheDirectoryPath",
+      "key": "cacheDirectoryPath",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-babelLoaderCustomize": {
+      "id": "virtual: config-babelLoaderCustomize",
+      "key": "babelLoaderCustomize",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-autoprefixer": {
+      "id": "virtual: config-autoprefixer",
+      "key": "autoprefixer",
+      "config": {},
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-autoCSSModules": {
+      "id": "virtual: config-autoCSSModules",
+      "key": "autoCSSModules",
+      "config": {
+        "default": true
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "virtual: config-alias": {
+      "id": "virtual: config-alias",
+      "key": "alias",
+      "config": {
+        "default": {
+          "umi": "@@/exports",
+          "react": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/react",
+          "react-dom/client": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/react-dom",
+          "react-dom": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/react-dom",
+          "react-router": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/react-router",
+          "react-router-dom": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/react-router-dom"
+        }
+      },
+      "type": "plugin",
+      "enableBy": "register",
+      "time": {
+        "hooks": {},
+        "register": 0
+      }
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/crossorigin/crossorigin": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/crossorigin/crossorigin.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/crossorigin/crossorigin",
+      "key": "crossorigin"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/depsOnDemand/depsOnDemand": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "onStart": [
+            1
+          ]
+        },
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/depsOnDemand/depsOnDemand.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/depsOnDemand/depsOnDemand",
+      "key": "depsOnDemand"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/devTool/devTool": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/devTool/devTool.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/devTool/devTool",
+      "key": "devTool"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/esbuildHelperChecker/esbuildHelperChecker": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 74
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/esbuildHelperChecker/esbuildHelperChecker.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/esbuildHelperChecker/esbuildHelperChecker",
+      "key": "esbuildHelperChecker"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/esmi/esmi": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 60
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/esmi/esmi.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/esmi/esmi",
+      "key": "esmi"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/exportStatic/exportStatic": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 15
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/exportStatic/exportStatic.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/exportStatic/exportStatic",
+      "key": "exportStatic"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/favicons/favicons": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyAppData": [
+            1
+          ]
+        },
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/favicons/favicons.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/favicons/favicons",
+      "key": "favicons"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/helmet/helmet": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/helmet/helmet.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/helmet/helmet",
+      "key": "helmet"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/icons/icons": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/icons/icons.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/icons/icons",
+      "key": "icons"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/mock/mock": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 23
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/mock/mock.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/mock/mock",
+      "key": "mock"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/mpa/mpa": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/mpa/mpa.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/mpa/mpa",
+      "key": "mpa"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/okam/okam": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/okam/okam.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/okam/okam",
+      "key": "okam"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/overrides/overrides": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/overrides/overrides.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/overrides/overrides",
+      "key": "overrides"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/phantomDependency/phantomDependency": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/phantomDependency/phantomDependency.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/phantomDependency/phantomDependency",
+      "key": "phantomDependency"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/polyfill/polyfill": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyConfig": [
+            1
+          ]
+        },
+        "register": 1
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/polyfill/polyfill.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/polyfill/polyfill",
+      "key": "polyfill"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/polyfill/publicPathPolyfill": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/polyfill/publicPathPolyfill.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/polyfill/publicPathPolyfill",
+      "key": "publicPathPolyfill"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/prepare/prepare": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/prepare/prepare.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/prepare/prepare",
+      "key": "prepare"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/routePrefetch/routePrefetch": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/routePrefetch/routePrefetch.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/routePrefetch/routePrefetch",
+      "key": "routePrefetch"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/terminal/terminal": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/terminal/terminal.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/terminal/terminal",
+      "key": "terminal"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/tmpFiles/tmpFiles": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/tmpFiles/tmpFiles.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/tmpFiles/tmpFiles",
+      "key": "tmpFiles"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/clientLoader/clientLoader": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/clientLoader/clientLoader.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/clientLoader/clientLoader",
+      "key": "clientLoader"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/routeProps/routeProps": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/routeProps/routeProps.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/routeProps/routeProps",
+      "key": "routeProps"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/ssr/ssr": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/ssr/ssr.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/ssr/ssr",
+      "key": "ssr"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/tmpFiles/configTypes": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/tmpFiles/configTypes.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/tmpFiles/configTypes",
+      "key": "configTypes"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/transform/transform": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/transform/transform.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/transform/transform",
+      "key": "transform"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/lowImport/lowImport": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/lowImport/lowImport.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/lowImport/lowImport",
+      "key": "lowImport"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/vite/vite": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/vite/vite.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/vite/vite",
+      "key": "vite"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/apiRoute/apiRoute": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 3
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/apiRoute/apiRoute.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/apiRoute/apiRoute",
+      "key": "apiRoute"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/monorepo/redirect": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 16
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/monorepo/redirect.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/monorepo/redirect",
+      "key": "monorepoRedirect"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/test/test": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/test/test.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/test/test",
+      "key": "test"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/clickToComponent/clickToComponent": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/clickToComponent/clickToComponent.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/clickToComponent/clickToComponent",
+      "key": "clickToComponent"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/legacy/legacy": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/legacy/legacy.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/legacy/legacy",
+      "key": "legacy"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/classPropertiesLoose/classPropertiesLoose": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/classPropertiesLoose/classPropertiesLoose.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/classPropertiesLoose/classPropertiesLoose",
+      "key": "classPropertiesLoose"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/webpack/webpack": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/webpack/webpack.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/webpack/webpack",
+      "key": "preset-umi:webpack"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/swc/swc": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "addOnDemandDeps": [
+            0
+          ]
+        },
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/swc/swc.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/swc/swc",
+      "key": "swc"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/ui/ui": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/ui/ui.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/ui/ui",
+      "key": "ui"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/mako/mako": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/mako/mako.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/mako/mako",
+      "key": "mako"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/hmrGuardian/hmrGuardian": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/hmrGuardian/hmrGuardian.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/hmrGuardian/hmrGuardian",
+      "key": "hmrGuardian"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/routePreloadOnLoad/routePreloadOnLoad": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/routePreloadOnLoad/routePreloadOnLoad.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/routePreloadOnLoad/routePreloadOnLoad",
+      "key": "routePreloadOnLoad"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/forget/forget": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/forget/forget.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/forget/forget",
+      "key": "forget"
+    },
+    "./node_modules/@umijs/preset-umi/dist/features/bundler/bundler": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/bundler/bundler.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/features/bundler/bundler",
+      "key": "preset-umi:bundler"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/build": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/build.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/build",
+      "key": "build"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/config/config": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 29
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/config/config.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/config/config",
+      "key": "config"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/dev/dev": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyAppData": [
+            12
+          ],
+          "onStart": [
+            0
+          ]
+        },
+        "register": 22
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/dev/dev.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/dev/dev",
+      "key": "dev"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/help": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/help.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/help",
+      "key": "help"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/lint": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/lint.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/lint",
+      "key": "lint"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/setup": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/setup.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/setup",
+      "key": "setup"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/deadcode": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/deadcode.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/deadcode",
+      "key": "deadcode"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/version": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/version.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/version",
+      "key": "version"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/page": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/generators/page.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/page",
+      "key": "generator:page"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/prettier": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/generators/prettier.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/prettier",
+      "key": "generator:prettier"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/tsconfig": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/generators/tsconfig.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/tsconfig",
+      "key": "generator:tsconfig"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/jest": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/generators/jest.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/jest",
+      "key": "generator:jest"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/tailwindcss": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/generators/tailwindcss.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/tailwindcss",
+      "key": "generator:tailwindcss"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/dva": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/generators/dva.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/dva",
+      "key": "generator:dva"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/component": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/generators/component.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/component",
+      "key": "generator:component"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/mock": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/generators/mock.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/mock",
+      "key": "generator:mock"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/cypress": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/generators/cypress.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/cypress",
+      "key": "generator:cypress"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/api": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/generators/api.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/api",
+      "key": "generator:api"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/generators/precommit": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/generators/precommit.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/generators/precommit",
+      "key": "generator:precommit"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/plugin": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/plugin.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/plugin",
+      "key": "command:plugin"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/verify-commit": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/verify-commit.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/verify-commit",
+      "key": "verifyCommit"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/preview": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 15
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/preview.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/preview",
+      "key": "preview"
+    },
+    "./node_modules/@umijs/preset-umi/dist/commands/mfsu/mfsu": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/mfsu/mfsu.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/preset-umi/dist/commands/mfsu/mfsu",
+      "key": "mfsu-cli"
+    },
+    "@umijs/plugin-run": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugin-run/dist/index.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "@umijs/plugin-run",
+      "key": "run"
+    },
+    "./node_modules/@umijs/plugins/dist/access": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/access.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/access",
+      "key": "access"
+    },
+    "./node_modules/@umijs/plugins/dist/analytics": {
+      "config": {
+        "onChange": "reload"
+      },
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/analytics.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/analytics",
+      "key": "analytics"
+    },
+    "./node_modules/@umijs/plugins/dist/antd": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyConfig": [
+            0
+          ],
+          "modifyAppData": [
+            0
+          ]
+        },
+        "register": 3
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/antd.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/antd",
+      "key": "antd"
+    },
+    "./node_modules/@umijs/plugins/dist/dva": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 4
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/dva.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/dva",
+      "key": "dva"
+    },
+    "./node_modules/@umijs/plugins/dist/initial-state": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/initial-state.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/initial-state",
+      "key": "initialState"
+    },
+    "./node_modules/@umijs/plugins/dist/layout": {
+      "config": {
+        "onChange": "regenerateTmpFiles"
+      },
+      "time": {
+        "hooks": {
+          "modifyConfig": [
+            0
+          ],
+          "addLayouts": [
+            0
+          ],
+          "modifyAppData": [
+            2
+          ]
+        },
+        "register": 2
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/layout.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/layout",
+      "key": "layout"
+    },
+    "./node_modules/@umijs/plugins/dist/locale": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 2
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/locale.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/locale",
+      "key": "locale"
+    },
+    "./node_modules/@umijs/plugins/dist/mf": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/mf.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/mf",
+      "key": "mf"
+    },
+    "./node_modules/@umijs/plugins/dist/model": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/model.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/model",
+      "key": "model"
+    },
+    "./node_modules/@umijs/plugins/dist/moment2dayjs": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/moment2dayjs.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/moment2dayjs",
+      "key": "moment2dayjs"
+    },
+    "./node_modules/@umijs/plugins/dist/qiankun": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/qiankun.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/qiankun",
+      "key": "qiankun"
+    },
+    "./node_modules/@umijs/plugins/dist/qiankun/master": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/qiankun/master.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/qiankun/master",
+      "key": "qiankun-master"
+    },
+    "./node_modules/@umijs/plugins/dist/qiankun/slave": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/qiankun/slave.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/qiankun/slave",
+      "key": "qiankun-slave"
+    },
+    "./node_modules/@umijs/plugins/dist/react-query": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/react-query.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/react-query",
+      "key": "reactQuery"
+    },
+    "./node_modules/@umijs/plugins/dist/request": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/request.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/request",
+      "key": "request"
+    },
+    "./node_modules/@umijs/plugins/dist/styled-components": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/styled-components.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/styled-components",
+      "key": "styledComponents"
+    },
+    "./node_modules/@umijs/plugins/dist/tailwindcss": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/tailwindcss.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/tailwindcss",
+      "key": "tailwindcss"
+    },
+    "./node_modules/@umijs/plugins/dist/valtio": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/valtio.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/plugins/dist/valtio",
+      "key": "valtio"
+    },
+    "./node_modules/@umijs/max/dist/plugins/maxAlias": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyConfig": [
+            0
+          ]
+        },
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/max/dist/plugins/maxAlias.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/max/dist/plugins/maxAlias",
+      "key": "maxAlias"
+    },
+    "./node_modules/@umijs/max/dist/plugins/maxAppData": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyAppData": [
+            0
+          ]
+        },
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/max/dist/plugins/maxAppData.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/max/dist/plugins/maxAppData",
+      "key": "maxAppData"
+    },
+    "./node_modules/@umijs/max/dist/plugins/maxChecker": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "onCheckPkgJSON": [
+            0
+          ]
+        },
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/max/dist/plugins/maxChecker.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/max/dist/plugins/maxChecker",
+      "key": "maxChecker"
+    },
+    "./node_modules/umi-presets-pro/dist/features/proconfig": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyConfig": [
+            0
+          ]
+        },
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/umi-presets-pro/dist/features/proconfig.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/umi-presets-pro/dist/features/proconfig",
+      "key": "proconfig"
+    },
+    "./node_modules/umi-presets-pro/dist/features/maxtabs": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/umi-presets-pro/dist/features/maxtabs.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/umi-presets-pro/dist/features/maxtabs",
+      "key": "maxtabs"
+    },
+    "@umijs/max-plugin-openapi": {
+      "config": {},
+      "time": {
+        "hooks": {
+          "modifyRoutes": [
+            0
+          ],
+          "onStart": [
+            0
+          ]
+        },
+        "register": 482
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/max-plugin-openapi/dist/index.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "@umijs/max-plugin-openapi",
+      "key": "openAPI"
+    },
+    "./node_modules/@alita/plugins/dist/keepalive": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 16
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@alita/plugins/dist/keepalive.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@alita/plugins/dist/keepalive",
+      "key": "keepalive"
+    },
+    "./node_modules/@alita/plugins/dist/tabs-layout": {
+      "config": {
+        "onChange": "regenerateTmpFiles"
+      },
+      "time": {
+        "hooks": {},
+        "register": 0
+      },
+      "enableBy": "config",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@alita/plugins/dist/tabs-layout.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@alita/plugins/dist/tabs-layout",
+      "key": "tabsLayout"
+    },
+    "./node_modules/@umijs/core/dist/service/generatePlugin": {
+      "config": {},
+      "time": {
+        "hooks": {},
+        "register": 1
+      },
+      "enableBy": "register",
+      "type": "plugin",
+      "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/core/dist/service/generatePlugin.js",
+      "cwd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react",
+      "id": "./node_modules/@umijs/core/dist/service/generatePlugin",
+      "key": "generatePlugin"
+    }
+  },
+  "presets": [],
+  "name": "dev",
+  "args": {
+    "_": []
+  },
+  "userConfig": {
+    "hash": true,
+    "routes": [
+      {
+        "path": "/",
+        "name": "主页",
+        "icon": "smile",
+        "component": "./Index"
+      },
+      {
+        "path": "/interface_info/:id",
+        "name": "查看接口",
+        "icon": "smile",
+        "component": "./InterfaceInfo",
+        "hideInMenu": true
+      },
+      {
+        "path": "/user",
+        "layout": false,
+        "routes": [
+          {
+            "name": "登录",
+            "path": "/user/login",
+            "component": "./User/Login"
+          }
+        ]
+      },
+      {
+        "path": "/admin",
+        "name": "管理页",
+        "icon": "crown",
+        "access": "canAdmin",
+        "routes": [
+          {
+            "name": "接口管理",
+            "icon": "table",
+            "path": "/admin/interface_info",
+            "component": "./Admin/InterfaceInfo"
+          },
+          {
+            "name": "接口分析",
+            "icon": "analysis",
+            "path": "/admin/interface_analysis",
+            "component": "./Admin/InterfaceAnalysis"
+          }
+        ]
+      },
+      {
+        "path": "*",
+        "layout": false,
+        "component": "./404"
+      }
+    ],
+    "theme": {
+      "root-entry-name": "variable"
+    },
+    "ignoreMomentLocale": true,
+    "proxy": {},
+    "fastRefresh": true,
+    "model": {},
+    "initialState": {},
+    "layout": {
+      "locale": true,
+      "navTheme": "light",
+      "colorPrimary": "#1890ff",
+      "layout": "top",
+      "contentWidth": "Fluid",
+      "fixedHeader": false,
+      "fixSiderbar": true,
+      "colorWeak": false,
+      "title": "鱼皮接口",
+      "pwa": false,
+      "logo": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
+      "iconfontUrl": ""
+    },
+    "antd": {},
+    "request": {},
+    "access": {},
+    "presets": [
+      "umi-presets-pro"
+    ],
+    "openAPI": [
+      {
+        "requestLibPath": "import { request } from '@umijs/max'",
+        "schemaPath": "http://localhost:7529/api/v3/api-docs",
+        "projectName": "yuapi-backend"
+      }
+    ],
+    "mfsu": {
+      "exclude": [
+        "@playwright/test"
+      ]
+    }
+  },
+  "mainConfigFile": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/config/config.ts",
+  "config": {
+    "routeLoader": {
+      "moduleType": "esm"
+    },
+    "mountElementId": "root",
+    "history": {
+      "type": "browser"
+    },
+    "base": "/",
+    "svgr": {},
+    "publicPath": "/",
+    "mfsu": {
+      "strategy": "eager",
+      "exclude": [
+        "@playwright/test"
+      ]
+    },
+    "ignoreMomentLocale": true,
+    "externals": {},
+    "autoCSSModules": true,
+    "alias": {
+      "umi": "@@/exports",
+      "react": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/react",
+      "react-dom/client": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/react-dom",
+      "react-dom": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/react-dom",
+      "react-router": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/react-router",
+      "react-router-dom": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/react-router-dom",
+      "@": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/src",
+      "@@": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/src/.umi",
+      "regenerator-runtime": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/node_modules/regenerator-runtime",
+      "antd": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/antd",
+      "@umijs/max": "@@/exports"
+    },
+    "hash": true,
+    "routes": [
+      {
+        "path": "/",
+        "name": "主页",
+        "icon": "smile",
+        "component": "./Index"
+      },
+      {
+        "path": "/interface_info/:id",
+        "name": "查看接口",
+        "icon": "smile",
+        "component": "./InterfaceInfo",
+        "hideInMenu": true
+      },
+      {
+        "path": "/user",
+        "layout": false,
+        "routes": [
+          {
+            "name": "登录",
+            "path": "/user/login",
+            "component": "./User/Login"
+          }
+        ]
+      },
+      {
+        "path": "/admin",
+        "name": "管理页",
+        "icon": "crown",
+        "access": "canAdmin",
+        "routes": [
+          {
+            "name": "接口管理",
+            "icon": "table",
+            "path": "/admin/interface_info",
+            "component": "./Admin/InterfaceInfo"
+          },
+          {
+            "name": "接口分析",
+            "icon": "analysis",
+            "path": "/admin/interface_analysis",
+            "component": "./Admin/InterfaceAnalysis"
+          }
+        ]
+      },
+      {
+        "path": "*",
+        "layout": false,
+        "component": "./404"
+      }
+    ],
+    "theme": {
+      "root-entry-name": "variable"
+    },
+    "proxy": {},
+    "fastRefresh": true,
+    "model": {},
+    "initialState": {},
+    "layout": {
+      "locale": true,
+      "navTheme": "light",
+      "colorPrimary": "#1890ff",
+      "layout": "top",
+      "contentWidth": "Fluid",
+      "fixedHeader": false,
+      "fixSiderbar": true,
+      "colorWeak": false,
+      "title": "鱼皮接口",
+      "pwa": false,
+      "logo": "https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg",
+      "iconfontUrl": ""
+    },
+    "antd": {},
+    "request": {},
+    "access": {},
+    "presets": [
+      "umi-presets-pro"
+    ],
+    "openAPI": [
+      {
+        "requestLibPath": "import { request } from '@umijs/max'",
+        "schemaPath": "http://localhost:7529/api/v3/api-docs",
+        "projectName": "yuapi-backend"
+      }
+    ],
+    "targets": {
+      "chrome": 80
+    },
+    "define": {
+      "ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION": "",
+      "REACT_APP_ENV": "dev"
+    }
+  },
+  "routes": {
+    "1": {
+      "path": "/",
+      "name": "主页",
+      "icon": "smile",
+      "file": "@/pages/Index/index.tsx",
+      "parentId": "ant-design-pro-layout",
+      "id": "1",
+      "absPath": "/",
+      "__content": "import { PageContainer } from '@ant-design/pro-components';\nimport React, { useEffect, useState } from 'react';\nimport { List, message } from 'antd';\nimport { listInterfaceInfoByPageUsingGET } from '@/services/yuapi-backend/interfaceInfoController';\n\n/**\n * 主页\n * @constructor\n */\nconst Index: React.FC = () => {\n  const [loading, setLoading] = useState(false);\n  const [list, setList] = useState<API.InterfaceInfo[]>([]);\n  const [total, setTotal] = useState<number>(0);\n\n  const loadData = async (current = 1, pageSize = 5) => {\n    setLoading(true);\n    try {\n      const res = await listInterfaceInfoByPageUsingGET({\n        current,\n        pageSize,\n      });\n      setList(res?.data?.records ?? []);\n      setTotal(res?.data?.total ?? 0);\n    } catch (error: any) {\n      message.error('请求失败，' + error.message);\n    }\n    setLoading(false);\n  };\n\n  useEffect(() => {\n    loadData();\n  }, []);\n\n  return (\n    <PageContainer title=\"在线接口开放平台\">\n      <List\n        className=\"my-list\"\n        loading={loading}\n        itemLayout=\"horizontal\"\n        dataSource={list}\n        renderItem={(item) => {\n          const apiLink = `/interface_info/${item.id}`;\n          return (\n            <List.Item actions={[<a key={item.id} href={apiLink}>查看</a>]}>\n              <List.Item.Meta\n                title={<a href={apiLink}>{item.name}</a>}\n                description={item.description}\n              />\n            </List.Item>\n          );\n        }}\n        pagination={{\n          // eslint-disable-next-line @typescript-eslint/no-shadow\n          showTotal(total: number) {\n            return '总数：' + total;\n          },\n          pageSize: 5,\n          total,\n          onChange(page, pageSize) {\n            loadData(page, pageSize);\n          },\n        }}\n      />\n    </PageContainer>\n  );\n};\n\nexport default Index;\n",
+      "__isJSFile": true,
+      "__absFile": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/src/pages/Index/index.tsx"
+    },
+    "2": {
+      "path": "/interface_info/:id",
+      "name": "查看接口",
+      "icon": "smile",
+      "hideInMenu": true,
+      "file": "@/pages/InterfaceInfo/index.tsx",
+      "parentId": "ant-design-pro-layout",
+      "id": "2",
+      "absPath": "/interface_info/:id",
+      "__content": "import { PageContainer } from '@ant-design/pro-components';\nimport React, { useEffect, useState } from 'react';\nimport {Button, Card, Descriptions, Form, message, Input, Spin, Divider} from 'antd';\nimport {\n  getInterfaceInfoByIdUsingGET,\n  invokeInterfaceInfoUsingPOST,\n} from '@/services/yuapi-backend/interfaceInfoController';\nimport { useParams } from '@@/exports';\n\n/**\n * 主页\n * @constructor\n */\nconst Index: React.FC = () => {\n  const [loading, setLoading] = useState(false);\n  const [data, setData] = useState<API.InterfaceInfo>();\n  const [invokeRes, setInvokeRes] = useState<any>();\n  const [invokeLoading, setInvokeLoading] = useState(false);\n\n  const params = useParams();\n\n  const loadData = async () => {\n    if (!params.id) {\n      message.error('参数不存在');\n      return;\n    }\n    setLoading(true);\n    try {\n      const res = await getInterfaceInfoByIdUsingGET({\n        id: Number(params.id),\n      });\n      setData(res.data);\n    } catch (error: any) {\n      message.error('请求失败，' + error.message);\n    }\n    setLoading(false);\n  };\n\n  useEffect(() => {\n    loadData();\n  }, []);\n\n  const onFinish = async (values: any) => {\n    if (!params.id) {\n      message.error('接口不存在');\n      return;\n    }\n    setInvokeLoading(true);\n    try {\n      const res = await invokeInterfaceInfoUsingPOST({\n        id: params.id,\n        ...values,\n      });\n      setInvokeRes(res.data);\n      message.success('请求成功');\n    } catch (error: any) {\n      message.error('操作失败，' + error.message);\n    }\n    setInvokeLoading(false);\n  };\n\n  return (\n    <PageContainer title=\"查看接口文档\">\n      <Card>\n        {data ? (\n          <Descriptions title={data.name} column={1}>\n            <Descriptions.Item label=\"接口状态\">{data.status ? '开启' : '关闭'}</Descriptions.Item>\n            <Descriptions.Item label=\"描述\">{data.description}</Descriptions.Item>\n            <Descriptions.Item label=\"请求地址\">{data.url}</Descriptions.Item>\n            <Descriptions.Item label=\"请求方法\">{data.method}</Descriptions.Item>\n            <Descriptions.Item label=\"请求参数\">{data.requestParams}</Descriptions.Item>\n            <Descriptions.Item label=\"请求头\">{data.requestHeader}</Descriptions.Item>\n            <Descriptions.Item label=\"响应头\">{data.responseHeader}</Descriptions.Item>\n            <Descriptions.Item label=\"创建时间\">{data.createTime}</Descriptions.Item>\n            <Descriptions.Item label=\"更新时间\">{data.updateTime}</Descriptions.Item>\n          </Descriptions>\n        ) : (\n          <>接口不存在</>\n        )}\n      </Card>\n      <Divider />\n      <Card title=\"在线测试\">\n        <Form name=\"invoke\" layout=\"vertical\" onFinish={onFinish}>\n          <Form.Item label=\"请求参数\" name=\"userRequestParams\">\n            <Input.TextArea />\n          </Form.Item>\n          <Form.Item wrapperCol={{ span: 16 }}>\n            <Button type=\"primary\" htmlType=\"submit\">\n              调用\n            </Button>\n          </Form.Item>\n        </Form>\n      </Card>\n      <Divider />\n      <Card title=\"返回结果\" loading={invokeLoading}>\n        {invokeRes}\n      </Card>\n    </PageContainer>\n  );\n};\n\nexport default Index;\n",
+      "__isJSFile": true,
+      "__absFile": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/src/pages/InterfaceInfo/index.tsx"
+    },
+    "3": {
+      "path": "/user",
+      "layout": false,
+      "id": "3",
+      "absPath": "/user"
+    },
+    "4": {
+      "name": "登录",
+      "path": "/user/login",
+      "file": "@/pages/User/Login/index.tsx",
+      "parentId": "3",
+      "id": "4",
+      "absPath": "/user/login",
+      "__content": "import Footer from '@/components/Footer';\nimport { getFakeCaptcha } from '@/services/ant-design-pro/login';\nimport {\n  AlipayCircleOutlined,\n  LockOutlined,\n  MobileOutlined,\n  TaobaoCircleOutlined,\n  UserOutlined,\n  WeiboCircleOutlined,\n} from '@ant-design/icons';\nimport {\n  LoginForm,\n  ProFormCaptcha,\n  ProFormCheckbox,\n  ProFormText,\n} from '@ant-design/pro-components';\nimport { history, useModel } from '@umijs/max';\nimport { Alert, message, Tabs } from 'antd';\nimport React, { useState } from 'react';\nimport { flushSync } from 'react-dom';\nimport styles from './index.less';\nimport { userLoginUsingPOST } from '@/services/yuapi-backend/userController';\n\nconst LoginMessage: React.FC<{\n  content: string;\n}> = ({ content }) => {\n  return (\n    <Alert\n      style={{\n        marginBottom: 24,\n      }}\n      message={content}\n      type=\"error\"\n      showIcon\n    />\n  );\n};\nconst Login: React.FC = () => {\n  const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});\n  const [type, setType] = useState<string>('account');\n  const { initialState, setInitialState } = useModel('@@initialState');\n  const handleSubmit = async (values: API.UserLoginRequest) => {\n    try {\n      // 登录\n      const res = await userLoginUsingPOST({\n        ...values,\n      });\n      if (res.data) {\n        const urlParams = new URL(window.location.href).searchParams;\n        history.push(urlParams.get('redirect') || '/');\n        setInitialState({\n          loginUser: res.data\n        });\n        return;\n      }\n    } catch (error) {\n      const defaultLoginFailureMessage = '登录失败，请重试！';\n      console.log(error);\n      message.error(defaultLoginFailureMessage);\n    }\n  };\n  const { status, type: loginType } = userLoginState;\n  return (\n    <div className={styles.container}>\n      <div className={styles.content}>\n        <LoginForm\n          logo={<img alt=\"logo\" src=\"/logo.svg\" />}\n          title=\"鱼皮接口\"\n          subTitle={'API 开放平台'}\n          initialValues={{\n            autoLogin: true,\n          }}\n          actions={[\n            '其他登录方式 :',\n            <AlipayCircleOutlined key=\"AlipayCircleOutlined\" className={styles.icon} />,\n            <TaobaoCircleOutlined key=\"TaobaoCircleOutlined\" className={styles.icon} />,\n            <WeiboCircleOutlined key=\"WeiboCircleOutlined\" className={styles.icon} />,\n          ]}\n          onFinish={async (values) => {\n            await handleSubmit(values as API.UserLoginRequest);\n          }}\n        >\n          <Tabs\n            activeKey={type}\n            onChange={setType}\n            centered\n            items={[\n              {\n                key: 'account',\n                label: '账户密码登录',\n              },\n              {\n                key: 'mobile',\n                label: '手机号登录',\n              },\n            ]}\n          />\n\n          {status === 'error' && loginType === 'account' && (\n            <LoginMessage content={'错误的用户名和密码(admin/ant.design)'} />\n          )}\n          {type === 'account' && (\n            <>\n              <ProFormText\n                name=\"userAccount\"\n                fieldProps={{\n                  size: 'large',\n                  prefix: <UserOutlined className={styles.prefixIcon} />,\n                }}\n                placeholder={'用户名: admin or user'}\n                rules={[\n                  {\n                    required: true,\n                    message: '用户名是必填项！',\n                  },\n                ]}\n              />\n              <ProFormText.Password\n                name=\"userPassword\"\n                fieldProps={{\n                  size: 'large',\n                  prefix: <LockOutlined className={styles.prefixIcon} />,\n                }}\n                placeholder={'密码: ant.design'}\n                rules={[\n                  {\n                    required: true,\n                    message: '密码是必填项！',\n                  },\n                ]}\n              />\n            </>\n          )}\n\n          {status === 'error' && loginType === 'mobile' && <LoginMessage content=\"验证码错误\" />}\n          {type === 'mobile' && (\n            <>\n              <ProFormText\n                fieldProps={{\n                  size: 'large',\n                  prefix: <MobileOutlined className={styles.prefixIcon} />,\n                }}\n                name=\"mobile\"\n                placeholder={'请输入手机号！'}\n                rules={[\n                  {\n                    required: true,\n                    message: '手机号是必填项！',\n                  },\n                  {\n                    pattern: /^1\\d{10}$/,\n                    message: '不合法的手机号！',\n                  },\n                ]}\n              />\n              <ProFormCaptcha\n                fieldProps={{\n                  size: 'large',\n                  prefix: <LockOutlined className={styles.prefixIcon} />,\n                }}\n                captchaProps={{\n                  size: 'large',\n                }}\n                placeholder={'请输入验证码！'}\n                captchaTextRender={(timing, count) => {\n                  if (timing) {\n                    return `${count} ${'秒后重新获取'}`;\n                  }\n                  return '获取验证码';\n                }}\n                name=\"captcha\"\n                rules={[\n                  {\n                    required: true,\n                    message: '验证码是必填项！',\n                  },\n                ]}\n                onGetCaptcha={async (phone) => {\n                  const result = await getFakeCaptcha({\n                    phone,\n                  });\n                  if (result === false) {\n                    return;\n                  }\n                  message.success('获取验证码成功！验证码为：1234');\n                }}\n              />\n            </>\n          )}\n          <div\n            style={{\n              marginBottom: 24,\n            }}\n          >\n            <ProFormCheckbox noStyle name=\"autoLogin\">\n              自动登录\n            </ProFormCheckbox>\n            <a\n              style={{\n                float: 'right',\n              }}\n            >\n              忘记密码 ?\n            </a>\n          </div>\n        </LoginForm>\n      </div>\n      <Footer />\n    </div>\n  );\n};\nexport default Login;\n",
+      "__isJSFile": true,
+      "__absFile": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/src/pages/User/Login/index.tsx"
+    },
+    "5": {
+      "path": "/admin",
+      "name": "管理页",
+      "icon": "crown",
+      "access": "canAdmin",
+      "parentId": "ant-design-pro-layout",
+      "id": "5",
+      "absPath": "/admin"
+    },
+    "6": {
+      "name": "接口管理",
+      "icon": "table",
+      "path": "/admin/interface_info",
+      "file": "@/pages/Admin/InterfaceInfo/index.tsx",
+      "parentId": "5",
+      "id": "6",
+      "absPath": "/admin/interface_info",
+      "__content": "import { PlusOutlined } from '@ant-design/icons';\nimport type { ActionType, ProColumns, ProDescriptionsItemProps } from '@ant-design/pro-components';\nimport {\n  FooterToolbar,\n  PageContainer,\n  ProDescriptions,\n  ProTable,\n} from '@ant-design/pro-components';\nimport '@umijs/max';\nimport { Button, Drawer, message } from 'antd';\nimport React, { useRef, useState } from 'react';\nimport type { SortOrder } from 'antd/es/table/interface';\nimport {\n  addInterfaceInfoUsingPOST,\n  deleteInterfaceInfoUsingPOST,\n  listInterfaceInfoByPageUsingGET,\n  offlineInterfaceInfoUsingPOST,\n  onlineInterfaceInfoUsingPOST,\n  updateInterfaceInfoUsingPOST\n} from '@/services/yuapi-backend/interfaceInfoController';\nimport CreateModal from '@/pages/Admin/InterfaceInfo/components/CreateModal';\nimport UpdateModal from \"@/pages/Admin/InterfaceInfo/components/UpdateModal\";\n\nconst TableList: React.FC = () => {\n  /**\n   * @en-US Pop-up window of new window\n   * @zh-CN 新建窗口的弹窗\n   *  */\n  const [createModalVisible, handleModalVisible] = useState<boolean>(false);\n  /**\n   * @en-US The pop-up window of the distribution update window\n   * @zh-CN 分布更新窗口的弹窗\n   * */\n  const [updateModalVisible, handleUpdateModalVisible] = useState<boolean>(false);\n  const [showDetail, setShowDetail] = useState<boolean>(false);\n  const actionRef = useRef<ActionType>();\n  const [currentRow, setCurrentRow] = useState<API.InterfaceInfo>();\n  const [selectedRowsState, setSelectedRows] = useState<API.InterfaceInfo[]>([]);\n\n  /**\n   * @en-US Add node\n   * @zh-CN 添加节点\n   * @param fields\n   */\n  const handleAdd = async (fields: API.InterfaceInfo) => {\n    const hide = message.loading('正在添加');\n    try {\n      await addInterfaceInfoUsingPOST({\n        ...fields,\n      });\n      hide();\n      message.success('创建成功');\n      handleModalVisible(false);\n      return true;\n    } catch (error: any) {\n      hide();\n      message.error('创建失败，' + error.message);\n      return false;\n    }\n  };\n\n  /**\n   * @en-US Update node\n   * @zh-CN 更新节点\n   *\n   * @param fields\n   */\n  const handleUpdate = async (fields:  API.InterfaceInfo) => {\n    if (!currentRow) {\n      return;\n    }\n    const hide = message.loading('修改中');\n    try {\n      await updateInterfaceInfoUsingPOST({\n        id: currentRow.id,\n        ...fields\n      });\n      hide();\n      message.success('操作成功');\n      return true;\n    } catch (error: any) {\n      hide();\n      message.error('操作失败，' + error.message);\n      return false;\n    }\n  };\n\n  /**\n   * 发布接口\n   *\n   * @param record\n   */\n  const handleOnline = async (record: API.IdRequest) => {\n    const hide = message.loading('发布中');\n    if (!record) return true;\n    try {\n      await onlineInterfaceInfoUsingPOST({\n        id: record.id\n      });\n      hide();\n      message.success('操作成功');\n      actionRef.current?.reload();\n      return true;\n    } catch (error: any) {\n      hide();\n      message.error('操作失败，' + error.message);\n      return false;\n    }\n  };\n\n  /**\n   * 下线接口\n   *\n   * @param record\n   */\n  const handleOffline = async (record: API.IdRequest) => {\n    const hide = message.loading('发布中');\n    if (!record) return true;\n    try {\n      await offlineInterfaceInfoUsingPOST({\n        id: record.id\n      });\n      hide();\n      message.success('操作成功');\n      actionRef.current?.reload();\n      return true;\n    } catch (error: any) {\n      hide();\n      message.error('操作失败，' + error.message);\n      return false;\n    }\n  };\n\n  /**\n   *  Delete node\n   * @zh-CN 删除节点\n   *\n   * @param record\n   */\n  const handleRemove = async (record: API.InterfaceInfo) => {\n    const hide = message.loading('正在删除');\n    if (!record) return true;\n    try {\n      await deleteInterfaceInfoUsingPOST({\n        id: record.id\n      });\n      hide();\n      message.success('删除成功');\n      actionRef.current?.reload();\n      return true;\n    } catch (error: any) {\n      hide();\n      message.error('删除失败，' + error.message);\n      return false;\n    }\n  };\n\n  /**\n   * @en-US International configuration\n   * @zh-CN 国际化配置\n   * */\n\n  const columns: ProColumns<API.InterfaceInfo>[] = [\n    {\n      title: '接口名称',\n      dataIndex: 'name',\n      valueType: 'text',\n      formItemProps: {\n        rules: [{\n          required: true,\n        }]\n      }\n    },\n    {\n      title: '描述',\n      dataIndex: 'description',\n      valueType: 'textarea',\n    },\n    {\n      title: '请求方法',\n      dataIndex: 'method',\n      valueType: 'text',\n    },\n    {\n      title: 'url',\n      dataIndex: 'url',\n      valueType: 'text',\n    },\n    {\n      title: '请求参数',\n      dataIndex: 'requestParams',\n      valueType: 'jsonCode',\n    },\n    {\n      title: '请求头',\n      dataIndex: 'requestHeader',\n      valueType: 'jsonCode',\n    },\n    {\n      title: '响应头',\n      dataIndex: 'responseHeader',\n      valueType: 'jsonCode',\n    },\n    {\n      title: '状态',\n      dataIndex: 'status',\n      hideInForm: true,\n      valueEnum: {\n        0: {\n          text: '关闭',\n          status: 'Default',\n        },\n        1: {\n          text: '开启',\n          status: 'Processing',\n        },\n      },\n    },\n    {\n      title: '操作',\n      dataIndex: 'option',\n      valueType: 'option',\n      render: (_, record) => [\n        <a\n          key=\"config\"\n          onClick={() => {\n            handleUpdateModalVisible(true);\n            setCurrentRow(record);\n          }}\n        >\n          修改\n        </a>,\n        record.status === 0 ? <a\n          key=\"config\"\n          onClick={() => {\n            handleOnline(record);\n          }}\n        >\n          发布\n        </a> : null,\n        record.status === 1 ? <Button\n          type=\"text\"\n          key=\"config\"\n          danger\n          onClick={() => {\n            handleOffline(record);\n          }}\n        >\n          下线\n        </Button> : null,\n        <Button\n          type=\"text\"\n          key=\"config\"\n          danger\n          onClick={() => {\n            handleRemove(record);\n          }}\n        >\n          删除\n        </Button>,\n      ],\n    },\n  ];\n\n  return (\n    <PageContainer>\n      <ProTable<API.RuleListItem, API.PageParams>\n        headerTitle={'查询表格'}\n        actionRef={actionRef}\n        rowKey=\"key\"\n        search={{\n          labelWidth: 120,\n        }}\n        toolBarRender={() => [\n          <Button\n            type=\"primary\"\n            key=\"primary\"\n            onClick={() => {\n              handleModalVisible(true);\n            }}\n          >\n            <PlusOutlined /> 新建\n          </Button>,\n        ]}\n        request={async (\n          params,\n          sort: Record<string, SortOrder>,\n          filter: Record<string, React.ReactText[] | null>,\n        ) => {\n          const res: any = await listInterfaceInfoByPageUsingGET({\n            ...params,\n          });\n          if (res?.data) {\n            return {\n              data: res?.data.records || [],\n              success: true,\n              total: res?.data.total || 0,\n            };\n          } else {\n            return {\n              data: [],\n              success: false,\n              total: 0,\n            };\n          }\n        }}\n        columns={columns}\n        rowSelection={{\n          onChange: (_, selectedRows) => {\n            setSelectedRows(selectedRows);\n          },\n        }}\n      />\n      {selectedRowsState?.length > 0 && (\n        <FooterToolbar\n          extra={\n            <div>\n              已选择{' '}\n              <a\n                style={{\n                  fontWeight: 600,\n                }}\n              >\n                {selectedRowsState.length}\n              </a>{' '}\n              项 &nbsp;&nbsp;\n              <span>\n                服务调用次数总计 {selectedRowsState.reduce((pre, item) => pre + item.callNo!, 0)} 万\n              </span>\n            </div>\n          }\n        >\n          <Button\n            onClick={async () => {\n              await handleRemove(selectedRowsState);\n              setSelectedRows([]);\n              actionRef.current?.reloadAndRest?.();\n            }}\n          >\n            批量删除\n          </Button>\n          <Button type=\"primary\">批量审批</Button>\n        </FooterToolbar>\n      )}\n      <UpdateModal\n        columns={columns}\n        onSubmit={async (value) => {\n          const success = await handleUpdate(value);\n          if (success) {\n            handleUpdateModalVisible(false);\n            setCurrentRow(undefined);\n            if (actionRef.current) {\n              actionRef.current.reload();\n            }\n          }\n        }}\n        onCancel={() => {\n          handleUpdateModalVisible(false);\n          if (!showDetail) {\n            setCurrentRow(undefined);\n          }\n        }}\n        visible={updateModalVisible}\n        values={currentRow || {}}\n      />\n\n      <Drawer\n        width={600}\n        visible={showDetail}\n        onClose={() => {\n          setCurrentRow(undefined);\n          setShowDetail(false);\n        }}\n        closable={false}\n      >\n        {currentRow?.name && (\n          <ProDescriptions<API.RuleListItem>\n            column={2}\n            title={currentRow?.name}\n            request={async () => ({\n              data: currentRow || {},\n            })}\n            params={{\n              id: currentRow?.name,\n            }}\n            columns={columns as ProDescriptionsItemProps<API.RuleListItem>[]}\n          />\n        )}\n      </Drawer>\n      <CreateModal\n        columns={columns}\n        onCancel={() => {\n          handleModalVisible(false);\n        }}\n        onSubmit={(values) => {\n          handleAdd(values);\n        }}\n        visible={createModalVisible}\n      />\n    </PageContainer>\n  );\n};\nexport default TableList;\n",
+      "__isJSFile": true,
+      "__absFile": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/src/pages/Admin/InterfaceInfo/index.tsx"
+    },
+    "7": {
+      "name": "接口分析",
+      "icon": "analysis",
+      "path": "/admin/interface_analysis",
+      "file": "@/pages/Admin/InterfaceAnalysis/index.tsx",
+      "parentId": "5",
+      "id": "7",
+      "absPath": "/admin/interface_analysis",
+      "__content": "import { PageContainer } from '@ant-design/pro-components';\nimport '@umijs/max';\nimport React, {useEffect, useState} from 'react';\nimport ReactECharts from 'echarts-for-react';\nimport {listTopInvokeInterfaceInfoUsingGET} from \"@/services/yuapi-backend/analysisController\";\n\n/**\n * 接口分析\n * @constructor\n */\nconst InterfaceAnalysis: React.FC = () => {\n\n  const [data, setData] = useState<API.InterfaceInfoVO[]>([]);\n\n  useEffect(() => {\n    try {\n      listTopInvokeInterfaceInfoUsingGET().then(res => {\n        if (res.data) {\n          setData(res.data);\n        }\n      })\n    } catch (e: any) {\n\n    }\n    // todo 从远程获取数据\n  }, [])\n\n  // 映射：{ value: 1048, name: 'Search Engine' },\n  const chartData = data.map(item => {\n    return {\n      value: item.totalNum,\n      name: item.name,\n    }\n  })\n\n  const option = {\n    title: {\n      text: '调用次数最多的接口TOP3',\n      left: 'center',\n    },\n    tooltip: {\n      trigger: 'item',\n    },\n    legend: {\n      orient: 'vertical',\n      left: 'left',\n    },\n    series: [\n      {\n        name: 'Access From',\n        type: 'pie',\n        radius: '50%',\n        data: chartData,\n        emphasis: {\n          itemStyle: {\n            shadowBlur: 10,\n            shadowOffsetX: 0,\n            shadowColor: 'rgba(0, 0, 0, 0.5)',\n          },\n        },\n      },\n    ],\n  };\n\n  return (\n    <PageContainer>\n      <ReactECharts option={option} />\n    </PageContainer>\n  );\n};\nexport default InterfaceAnalysis;\n",
+      "__isJSFile": true,
+      "__absFile": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/src/pages/Admin/InterfaceAnalysis/index.tsx"
+    },
+    "8": {
+      "path": "*",
+      "layout": false,
+      "file": "@/pages/404.tsx",
+      "id": "8",
+      "absPath": "/*",
+      "__content": "import { history } from '@umijs/max';\nimport { Button, Result } from 'antd';\nimport React from 'react';\n\nconst NoFoundPage: React.FC = () => (\n  <Result\n    status=\"404\"\n    title=\"404\"\n    subTitle=\"Sorry, the page you visited does not exist.\"\n    extra={\n      <Button type=\"primary\" onClick={() => history.push('/')}>\n        Back Home\n      </Button>\n    }\n  />\n);\n\nexport default NoFoundPage;\n",
+      "__isJSFile": true,
+      "__absFile": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/src/pages/404.tsx"
+    },
+    "ant-design-pro-layout": {
+      "id": "ant-design-pro-layout",
+      "path": "/",
+      "file": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/src/.umi/plugin-layout/Layout.tsx",
+      "absPath": "/",
+      "isLayout": true,
+      "__absFile": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/src/.umi/plugin-layout/Layout.tsx"
+    },
+    "umi/plugin/openapi": {
+      "path": "/umi/plugin/openapi",
+      "absPath": "/umi/plugin/openapi",
+      "id": "umi/plugin/openapi",
+      "file": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/src/.umi/plugin-openapi/openapi.tsx"
+    }
+  },
+  "apiRoutes": {},
+  "hasSrcDir": true,
+  "npmClient": "cnpm",
+  "umi": {
+    "version": "4.4.11",
+    "name": "Umi Max",
+    "importSource": "@umijs/max",
+    "cliName": "max"
+  },
+  "bundleStatus": {
+    "done": false
+  },
+  "mfsuBundleStatus": {
+    "done": false
+  },
+  "react": {
+    "version": "17.0.2",
+    "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/react"
+  },
+  "react-dom": {
+    "version": "17.0.2",
+    "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/react-dom"
+  },
+  "appJS": {
+    "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/src/app.tsx",
+    "exports": [
+      "getInitialState",
+      "layout",
+      "request"
+    ]
+  },
+  "locale": "zh-CN",
+  "globalCSS": [
+    "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/src/global.less"
+  ],
+  "globalJS": [
+    "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/src/global.tsx"
+  ],
+  "overridesCSS": [],
+  "bundler": "webpack",
+  "git": {
+    "originUrl": "git@github.com:limou3434/work-open-api.git"
+  },
+  "framework": "react",
+  "typescript": {
+    "tsVersion": "4.9.5",
+    "tslibVersion": "2.8.1"
+  },
+  "faviconFiles": [],
+  "port": 3000,
+  "host": "127.0.0.1",
+  "ip": "10.102.25.232",
+  "antd": {
+    "pkgPath": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/antd",
+    "version": "4.24.16"
+  },
+  "pluginLayout": {
+    "pkgPath": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@ant-design/pro-components",
+    "version": "2.8.9"
+  }
+}
