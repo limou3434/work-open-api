@@ -1,0 +1,67 @@
+package cn.com.edtechhub.testinterface.controller;
+
+
+import cn.com.edtechhub.testinterface.model.User;
+import cn.com.edtechhub.testinterface.utils.SignUtils;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+
+/**
+ * 名称 API
+ *
+ * @author yupi
+ */
+@RestController
+@RequestMapping("/name")
+public class NameController {
+
+    // GET 接口(url 传参)
+    @GetMapping("/get_name_by_get_with_param")
+    public String getNameByGetWithParam(@RequestParam String name) {
+        return "GET 你的名字是 " + name;
+    }
+
+    // POST 接口(url 传参)
+    @PostMapping("/get_name_by_post_with_param")
+    public String getNameByPostWithParam(@RequestParam String name) {
+        return "POST 你的名字是 " + name;
+    }
+
+    // POST 接口(Restful)
+    @PostMapping("/get_name_by_post_with_restful")
+    public String getNameByPostWithRestful(@RequestBody User user, HttpServletRequest request) {
+        // 1. 拿到这五个我们可以一步一步去做校验,比如 accessKey 我们先去数据库中查一下
+        String accessKey = request.getHeader("accessKey");
+        String nonce = request.getHeader("nonce");
+        String timestamp = request.getHeader("timestamp");
+        String body = request.getHeader("body");
+        String sign = request.getHeader("sign");
+
+        // 2. 校验权限,这里模拟一下,直接判断 accessKey 是否为"limou3434",实际应该查询数据库验证权限
+        if (!accessKey.equals("limou3434")) {
+            throw new RuntimeException("无权限, 不存在该用户");
+        }
+
+        // 3. 校验一下随机数,因为时间有限,就不带大家再到后端去存储了,后端存储用hashmap或redis都可以
+        // 校验随机数,模拟一下,直接判断nonce是否大于10000
+        if (Long.parseLong(nonce) > 10000) {
+            throw new RuntimeException("无权限, 随机数值溢出");
+        }
+
+        // 4. 校验时间戳与当前时间的差距,交给大家自己实现
+        // if (timestamp) {}
+
+        // 5. 校验 body 是否为合法的 json
+        // if (body) {}
+
+        // 6.校验签名, secretKey 是由服务端签发的, 所以服务端肯定有这个信息
+        String serverSign = SignUtils.getSign(body, "abcdefgh");
+        if (!sign.equals(serverSign)) {
+            throw new RuntimeException("无权限, 签名验证错误");
+        }
+
+        return "POST 你的名字是 " + user.getUsername();
+    }
+
+}
