@@ -1,4 +1,4 @@
-package generator.domain;
+package cn.com.edtechhub.workopenapi.model.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;

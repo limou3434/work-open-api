@@ -1,9 +1,14 @@
 package cn.com.edtechhub.testinterface;
 
-import cn.com.edtechhub.testinterface.client.ApiClient;
-import cn.com.edtechhub.testinterface.model.User;
+import cn.com.edtechhub.workoapiclisdk.client.ApiClient;
+import cn.com.edtechhub.workoapiclisdk.model.User;
+
+import javax.annotation.Resource;
 
 public class Main {
+
+    @Resource
+    private ApiClient apiClient;
 
     public static void main(String[] args) {
         String accessKey = "limou3434";

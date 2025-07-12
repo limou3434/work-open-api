@@ -9,6 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ * 读取用户配置后自动创建一个 apiClient Bean, 然后
  * 在 META-INF/spring.factories 中指定了要自动配置下面这个类
  * Spring Boot 将会在应用启动时自动加载和实例化 WorkOapicliSdkConfig 并将其应用于我们的应用程序中
  * 这样我们就可以使用自动配置生成的 apiClient 对象, 而无需手动创建和配置
@@ -29,6 +30,12 @@ public class WorkOapicliSdkConfig {
      * 密钥
      */
     private String secretKey;
+
+    /**
+     * 制作客户端 Bean
+     *
+     * @return 客户端
+     */
 
     @Bean
     public ApiClient apiClient() {

@@ -7,7 +7,7 @@
         4.0.0
     </modelVersion>
     <groupId>
-        cn.com.edtechhub.test-interface
+        cn.com.edtechhub
     </groupId>
     <artifactId>
         test-interface
@@ -95,6 +95,13 @@
             <artifactId>hutool-all</artifactId>
             <version>5.8.16</version>
         </dependency>
+
+        <dependency>
+            <groupId>cn.com.edtechhub</groupId>
+            <artifactId>work-oapicli-sdk</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -140,7 +147,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <argLine>-javaagent:${settings.localRepository}/net/bytebuddy/byte-buddy-agent/1.15.11/byte-buddy-agent-1.15.11.jar</argLine>
+                    <argLine>
+                        -javaagent:${settings.localRepository}/net/bytebuddy/byte-buddy-agent/1.15.11/byte-buddy-agent-1.15.11.jar
+                    </argLine>
                 </configuration>
             </plugin>
         </plugins>

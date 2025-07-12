@@ -34,14 +34,14 @@ public class ApiClient {
     public String getNameByGetWithParam(String name) {
         HashMap<String, Object> paramMap = new HashMap<>();
         paramMap.put("name", name);
-        return HttpUtil.get("http://127.0.0.1:8123/api/name/get_name_by_get_with_param", paramMap);
+        return HttpUtil.get("http://127.0.0.1:8888/api/name/get_name_by_get_with_param", paramMap);
     }
 
     // POST 接口 (url 传参)
     public String getNameByPostWithParam(String name) {
         HashMap<String, Object> paramMap = new HashMap<>();
         paramMap.put("name", name);
-        return HttpUtil.post("http://127.0.0.1:8123/api/name/get_name_by_post_with_param", paramMap);
+        return HttpUtil.post("http://127.0.0.1:8888/api/name/get_name_by_post_with_param", paramMap);
     }
 
     // 创建一个私有方法，用于构造请求头
@@ -64,7 +64,7 @@ public class ApiClient {
 
         // 使用 HttpRequest 工具发起 POST 请求，并获取服务器的响应
         HttpResponse httpResponse = HttpRequest
-                .post("http://127.0.0.1:8123/api/name/get_name_by_post_with_restful/")
+                .post("http://127.0.0.1:8888/api/name/get_name_by_post_with_restful/")
                 .addHeaders(this.getHeaderMap(json))
                 .body(json) // 将 JSON 字符串设置为请求体
                 .execute(); // 执行请求

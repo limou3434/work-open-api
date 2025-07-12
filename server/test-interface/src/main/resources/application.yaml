@@ -1,6 +1,11 @@
 server:
-  port: 8123
+  port: 8888
   address: 127.0.0.1
   servlet:
     context-path: /api
 
+work:
+  oapicli:
+    sdk:
+      access-key: limou3434
+      secret-key: abcdefgh
