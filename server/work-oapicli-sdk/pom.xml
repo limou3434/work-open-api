@@ -20,6 +20,7 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
+        <!-- 这个库的作用可以重点关注一下, 主要用来开发搭配配置文件的 sdk 项目的 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
