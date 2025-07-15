@@ -1,7 +1,9 @@
 package cn.com.edtechhub.workopenapi;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 /**
  * 签名认证实现:
@@ -26,10 +28,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * (3)防止重放问题, 仅仅靠纯粹的 HTTP(S) 无法避免重放攻击
  */
 @SpringBootApplication
+@Slf4j
 public class WorkOpenApiApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(WorkOpenApiApplication.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(WorkOpenApiApplication.class, args);
+        log.debug("Spring Boot running...");
     }
 
 }
