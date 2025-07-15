@@ -1,7 +1,7 @@
 package cn.com.edtechhub.workopenapi.utils;
 
-import cn.com.edtechhub.workcollaborativeimages.exception.CodeBindMessageEnums;
-import cn.com.edtechhub.workcollaborativeimages.exception.BusinessException;
+import cn.com.edtechhub.workopenapi.exception.BusinessException;
+import cn.com.edtechhub.workopenapi.exception.CodeBindMessageEnums;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.http.Header;
 import cn.hutool.http.useragent.UserAgent;

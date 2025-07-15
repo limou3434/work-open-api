@@ -34,6 +34,7 @@ public class WorkOpenApiApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(WorkOpenApiApplication.class, args);
         log.debug("Spring Boot running...");
+        log.debug("访问 http://127.0.0.1:8000/doc.html 或 http://127.0.0.1:8000/swagger-ui/index.html 即可得到在线文档, 访问 http://127.0.0.1:8000/v3/api-docs 即可得到文档配置");
     }
 
 }

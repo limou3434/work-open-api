@@ -14,7 +14,7 @@ public enum CodeBindMessageEnums {
      * 枚举常量
      */
     // 2xxxx 处理已成功类型
-    SUCCESS(20000, "成功"),
+    SUCCESS(0, "成功"), // TODO: 后期修改为 20000
 
     // 3xxxx 重定向地址类型
     // 待补充...
