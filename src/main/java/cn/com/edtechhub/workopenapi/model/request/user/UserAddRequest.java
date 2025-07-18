@@ -1,5 +1,6 @@
 package cn.com.edtechhub.workopenapi.model.request.user;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -42,5 +43,8 @@ public class UserAddRequest implements Serializable {
      */
     private String userPassword;
 
+    /// 序列化字段 ///
+    @TableField(exist = false)
     private static final long serialVersionUID = 1L;
+
 }

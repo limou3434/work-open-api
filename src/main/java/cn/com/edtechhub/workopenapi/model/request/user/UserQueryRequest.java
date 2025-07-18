@@ -1,5 +1,6 @@
 package cn.com.edtechhub.workopenapi.model.request.user;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -14,6 +15,7 @@ import java.util.Date;
 @EqualsAndHashCode(callSuper = true)
 @Data
 public class UserQueryRequest extends PageRequest implements Serializable {
+
     /**
      * id
      */
@@ -54,6 +56,8 @@ public class UserQueryRequest extends PageRequest implements Serializable {
      */
     private Date updateTime;
 
+    /// 序列化字段 ///
+    @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
 }

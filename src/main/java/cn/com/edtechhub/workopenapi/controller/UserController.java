@@ -18,7 +18,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -90,9 +89,7 @@ public class UserController {
         return ResultUtils.success(result);
     }
 
-    /**
-     * 根据 id 获取用户
-     */
+    @Operation(summary = "根据标识获取用户信息")
     @GetMapping("/get")
     public BaseResponse<UserVO> getUserById(int id) {
         // 校验参数
@@ -107,9 +104,7 @@ public class UserController {
         return ResultUtils.success(userVO);
     }
 
-    /**
-     * 获取用户列表
-     */
+    @Operation(summary = "根据参数获取用户列表")
     @GetMapping("/list")
     public BaseResponse<List<UserVO>> listUser(UserQueryRequest userQueryRequest) {
         // 校验参数
@@ -132,9 +127,7 @@ public class UserController {
         return ResultUtils.success(userVOList);
     }
 
-    /**
-     * 分页获取用户列表
-     */
+    @Operation(summary = "根据参数获取用户分页")
     @GetMapping("/list/page")
     public BaseResponse<Page<UserVO>> listUserByPage(UserQueryRequest userQueryRequest) {
         // 校验参数

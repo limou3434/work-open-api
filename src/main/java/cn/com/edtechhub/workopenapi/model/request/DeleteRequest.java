@@ -6,7 +6,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * 用户删除请求
+ * 通用实体删除请求
  *
  * @author <a href="https://github.com/limou3434">limou3434</a>
  */

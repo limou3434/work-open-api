@@ -8,7 +8,7 @@ export default [
   },
   {
     path: '/admin',
-    name: '管理页',
+    name: '管理',
     icon: 'crown',
     access: 'canAdmin',
     routes: [
