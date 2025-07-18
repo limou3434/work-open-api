@@ -1,7 +1,7 @@
 package cn.com.edtechhub.workopenapi.service.impl;
 
-import cn.com.edtechhub.workopenapi.exception.BusinessException;
-import cn.com.edtechhub.workopenapi.exception.CodeBindMessageEnums;
+import cn.com.edtechhub.workopenapi.common.exception.BusinessException;
+import cn.com.edtechhub.workopenapi.common.exception.ErrorCode;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import cn.com.edtechhub.workopenapi.model.entity.InterfaceInfo;
 import cn.com.edtechhub.workopenapi.service.InterfaceInfoService;
@@ -21,17 +21,17 @@ public class InterfaceInfoServiceImpl extends ServiceImpl<InterfaceInfoMapper, I
     @Override
     public void validInterfaceInfo(InterfaceInfo interfaceInfo, boolean add) {
         if (interfaceInfo == null) {
-            throw new BusinessException(CodeBindMessageEnums.PARAMS_ERROR, "");
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "");
         }
         String name = interfaceInfo.getName();
         // 创建时，所有参数必须非空
         if (add) {
             if (StringUtils.isAnyBlank(name)) {
-                throw new BusinessException(CodeBindMessageEnums.PARAMS_ERROR, "");
+                throw new BusinessException(ErrorCode.PARAMS_ERROR, "");
             }
         }
         if (StringUtils.isNotBlank(name) && name.length() > 50) {
-            throw new BusinessException(CodeBindMessageEnums.PARAMS_ERROR, "名称过长");
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "名称过长");
         }
     }
 

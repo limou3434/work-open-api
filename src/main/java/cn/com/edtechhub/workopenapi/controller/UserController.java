@@ -1,13 +1,13 @@
 package cn.com.edtechhub.workopenapi.controller;
 
-import cn.com.edtechhub.workopenapi.exception.BusinessException;
-import cn.com.edtechhub.workopenapi.exception.CodeBindMessageEnums;
+import cn.com.edtechhub.workopenapi.common.exception.BusinessException;
+import cn.com.edtechhub.workopenapi.common.exception.ErrorCode;
 import cn.com.edtechhub.workopenapi.model.entity.User;
 import cn.com.edtechhub.workopenapi.model.request.user.UserLoginRequest;
 import cn.com.edtechhub.workopenapi.model.request.user.UserQueryRequest;
 import cn.com.edtechhub.workopenapi.model.vo.UserVO;
-import cn.com.edtechhub.workopenapi.response.BaseResponse;
-import cn.com.edtechhub.workopenapi.response.ResultUtils;
+import cn.com.edtechhub.workopenapi.common.response.BaseResponse;
+import cn.com.edtechhub.workopenapi.common.response.ResultUtils;
 import cn.com.edtechhub.workopenapi.service.UserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -64,7 +64,7 @@ public class UserController {
         String userAccount = userLoginRequest.getUserAccount();
         String userPassword = userLoginRequest.getUserPassword();
         if (StringUtils.isAnyBlank(userAccount, userPassword)) {
-            throw new BusinessException(CodeBindMessageEnums.PARAMS_ERROR, "");
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "");
         }
         User user = userService.userLogin(userAccount, userPassword, request);
         return ResultUtils.success(user);
@@ -161,7 +161,7 @@ public class UserController {
     @GetMapping("/get")
     public BaseResponse<UserVO> getUserById(int id, HttpServletRequest request) {
         if (id <= 0) {
-            throw new BusinessException(CodeBindMessageEnums.PARAMS_ERROR, "");
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "");
         }
         User user = userService.getById(id);
         UserVO userVO = new UserVO();

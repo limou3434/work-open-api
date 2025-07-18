@@ -1,0 +1,193 @@
+{
+  "properties": [
+    {
+      "name": "spring.datasource.druid.initial-size",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.initial-size."
+    },
+    {
+      "name": "spring.datasource.druid.minIdle",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.minIdle."
+    },
+    {
+      "name": "spring.datasource.druid.max-active",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.max-active."
+    },
+    {
+      "name": "spring.datasource.druid.max-wait",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.max-wait."
+    },
+    {
+      "name": "spring.datasource.druid.time-between-eviction-runs-millis",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.time-between-eviction-runs-millis."
+    },
+    {
+      "name": "spring.datasource.druid.min-evictable-idle-time-millis",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.min-evictable-idle-time-millis."
+    },
+    {
+      "name": "spring.datasource.druid.max-evictable-idle-time-millis",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.max-evictable-idle-time-millis."
+    },
+    {
+      "name": "spring.datasource.druid.validationQuery",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.validationQuery."
+    },
+    {
+      "name": "spring.datasource.druid.testWhileIdle",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.testWhileIdle."
+    },
+    {
+      "name": "spring.datasource.druid.testOnBorrow",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.testOnBorrow."
+    },
+    {
+      "name": "spring.datasource.druid.testOnReturn",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.testOnReturn."
+    },
+    {
+      "name": "spring.datasource.druid.poolPreparedStatements",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.poolPreparedStatements."
+    },
+    {
+      "name": "spring.datasource.druid.maxOpenPreparedStatements",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.maxOpenPreparedStatements."
+    },
+    {
+      "name": "spring.datasource.druid.keepAlive",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.keepAlive."
+    },
+    {
+      "name": "spring.datasource.druid.aop-patterns",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.aop-patterns."
+    },
+    {
+      "name": "spring.datasource.druid.filters",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.filters."
+    },
+    {
+      "name": "spring.datasource.druid.filter.stat.enabled",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.filter.stat.enabled."
+    },
+    {
+      "name": "spring.datasource.druid.filter.stat.db-type",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.filter.stat.db-type."
+    },
+    {
+      "name": "spring.datasource.druid.filter.stat.log-slow-sql",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.filter.stat.log-slow-sql."
+    },
+    {
+      "name": "spring.datasource.druid.filter.stat.slow-sql-millis",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.filter.stat.slow-sql-millis."
+    },
+    {
+      "name": "spring.datasource.druid.filter.slf4j.enabled",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.filter.slf4j.enabled."
+    },
+    {
+      "name": "spring.datasource.druid.filter.slf4j.statement-log-error-enabled",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.filter.slf4j.statement-log-error-enabled."
+    },
+    {
+      "name": "spring.datasource.druid.filter.slf4j.statement-create-after-log-enabled",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.filter.slf4j.statement-create-after-log-enabled."
+    },
+    {
+      "name": "spring.datasource.druid.filter.slf4j.statement-close-after-log-enabled",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.filter.slf4j.statement-close-after-log-enabled."
+    },
+    {
+      "name": "spring.datasource.druid.filter.slf4j.result-set-open-after-log-enabled",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.filter.slf4j.result-set-open-after-log-enabled."
+    },
+    {
+      "name": "spring.datasource.druid.filter.slf4j.result-set-close-after-log-enabled",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.filter.slf4j.result-set-close-after-log-enabled."
+    },
+    {
+      "name": "spring.datasource.druid.web-stat-filter.enabled",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.web-stat-filter.enabled."
+    },
+    {
+      "name": "spring.datasource.druid.web-stat-filter.url-pattern",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.web-stat-filter.url-pattern."
+    },
+    {
+      "name": "spring.datasource.druid.web-stat-filter.exclusions",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.web-stat-filter.exclusions."
+    },
+    {
+      "name": "spring.datasource.druid.web-stat-filter.session-stat-enable",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.web-stat-filter.session-stat-enable."
+    },
+    {
+      "name": "spring.datasource.druid.web-stat-filter.session-stat-max-count",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.web-stat-filter.session-stat-max-count."
+    },
+    {
+      "name": "spring.datasource.druid.stat-view-servlet.enabled",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.stat-view-servlet.enabled."
+    },
+    {
+      "name": "spring.datasource.druid.stat-view-servlet.url-pattern",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.stat-view-servlet.url-pattern."
+    },
+    {
+      "name": "spring.datasource.druid.stat-view-servlet.reset-enable",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.stat-view-servlet.reset-enable."
+    },
+    {
+      "name": "spring.datasource.druid.stat-view-servlet.login-username",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.stat-view-servlet.login-username."
+    },
+    {
+      "name": "spring.datasource.druid.stat-view-servlet.login-password",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.stat-view-servlet.login-password."
+    },
+    {
+      "name": "spring.datasource.druid.stat-view-servlet.deny",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.stat-view-servlet.deny."
+    },
+    {
+      "name": "spring.datasource.druid.stat-view-servlet.allow",
+      "type": "java.lang.String",
+      "description": "Description for spring.datasource.druid.stat-view-servlet.allow."
+    }
+  ] }

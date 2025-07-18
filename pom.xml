@@ -154,7 +154,7 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.5.11</version>
             <exclusions>
-                <!-- 排除默认的 HikariCP -->
+                <!-- 排除默认的 HikariCP, 使用 Druid 代替 -->
                 <exclusion>
                     <groupId>com.zaxxer</groupId>
                     <artifactId>HikariCP</artifactId>
