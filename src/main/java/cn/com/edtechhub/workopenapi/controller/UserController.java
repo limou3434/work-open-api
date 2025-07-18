@@ -3,8 +3,8 @@ package cn.com.edtechhub.workopenapi.controller;
 import cn.com.edtechhub.workopenapi.exception.BusinessException;
 import cn.com.edtechhub.workopenapi.exception.CodeBindMessageEnums;
 import cn.com.edtechhub.workopenapi.model.entity.User;
-import cn.com.edtechhub.workopenapi.model.rq.user.UserLoginRequest;
-import cn.com.edtechhub.workopenapi.model.rq.user.UserQueryRequest;
+import cn.com.edtechhub.workopenapi.model.request.user.UserLoginRequest;
+import cn.com.edtechhub.workopenapi.model.request.user.UserQueryRequest;
 import cn.com.edtechhub.workopenapi.model.vo.UserVO;
 import cn.com.edtechhub.workopenapi.response.BaseResponse;
 import cn.com.edtechhub.workopenapi.response.ResultUtils;
@@ -24,8 +24,7 @@ import java.util.stream.Collectors;
 /**
  * 用户接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/limou3434">limou3434</a>
  */
 @RestController
 @RequestMapping("/user")

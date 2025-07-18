@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <!-- 元数描述 -->
     <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+    <name>work-open-api</name>
+    <description>work-open-api</description>
+    <url>https://github.com/limou3434</url>
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <!-- 标识描述 -->
     <groupId>cn.com.edtechhub.workopenapi</groupId>
     <artifactId>work-open-api</artifactId>
     <version>0.0.1</version>
-    <name>work-open-api</name>
-    <description>work-open-api</description>
+
+    <!-- 版本描述 -->
     <properties>
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
+    <!-- 继承描述 -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -20,8 +38,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
+    <!-- 依赖描述 -->
     <dependencies>
 
+        <!-- 核心依赖 -->
         <!-- Spring: https://spring.io/ -->
         <dependency>
             <!-- Spring Boot 核心依赖 -->
@@ -60,17 +80,6 @@
             <!-- Hibernate Validator 参数校验模块 -->
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>
-                org.springframework.boot
-            </groupId>
-            <artifactId>
-                spring-boot-starter-test
-            </artifactId>
-            <scope>
-                test
-            </scope>
         </dependency>
 
         <!-- MySQL: https://www.mysql.com/ -->
@@ -116,6 +125,21 @@
             <version>5.8.8</version>
         </dependency>
 
+        <!-- Guava: https://github.com/google/guava?tab=readme-ov-file  -->
+        <dependency>
+            <!-- 类似 Hutoll 的工具包 -->
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>31.1-jre</version>
+        </dependency>
+
+        <!-- Commons Lang3: https://commons.apache.org/proper/commons-lang/ -->
+        <dependency>
+            <!-- Commons Lang3 是 Apache 提供的 Java 工具类库, 包含: StringUtils(字符串处理)、ObjectUtils(对象工具)、RandomStringUtils(随机字符串生成)-->
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+
         <!-- OpenAPI: https://doc.xiaominfo.com/ -->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
@@ -129,6 +153,13 @@
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.5.11</version>
+            <exclusions>
+                <!-- 排除默认的 HikariCP -->
+                <exclusion>
+                    <groupId>com.zaxxer</groupId>
+                    <artifactId>HikariCP</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <!-- 解决 PaginationInnerInterceptor 失效问题 -->
@@ -157,7 +188,73 @@
             <version>1.42.0</version>
         </dependency>
 
-        <!-- sdk -->
+        <!-- Druid: https://github.com/alibaba/druid/ -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.23</version>
+        </dependency>
+
+        <!-- 拓展依赖 -->
+        <!-- Tencent COS: https://cloud.tencent.com/document/product/436/10199 -->
+        <!--        <dependency>-->
+        <!--            <groupId>com.qcloud</groupId>-->
+        <!--            <artifactId>cos_api</artifactId>-->
+        <!--            <version>5.6.245</version>-->
+        <!--        </dependency>-->
+
+        <!-- HTML Analysis: https://jsoup.org/ -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.jsoup</groupId>-->
+        <!--            <artifactId>jsoup</artifactId>-->
+        <!--            <version>1.15.3</version>-->
+        <!--        </dependency>-->
+
+        <!-- WebSocket -->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-websocket</artifactId>-->
+        <!--        </dependency>-->
+
+        <!--        &lt;!&ndash; Nacos: https://nacos.io/docs/latest/quickstart/quick-start/?spm=5238cd80.c984973.0.0.6be14023bZ0GqZ &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.boot</groupId>-->
+        <!--            <artifactId>nacos-config-spring-boot-starter</artifactId>-->
+        <!--            <version>0.2.12</version>-->
+        <!--        </dependency>-->
+
+        <!--        &lt;!&ndash; Sentinel: https://sentinelguard.io/zh-cn/index.html &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            &lt;!&ndash; 本依赖内部集成 Sentinel 的所有核心依赖, 包括两个依赖 &ndash;&gt;-->
+        <!--            <groupId>com.alibaba.cloud</groupId>-->
+        <!--            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>-->
+        <!--            <version>2021.0.5.0</version>-->
+        <!--        </dependency>-->
+
+        <!--        &lt;!&ndash; Elasticsearch: https://www.elastic.co/docs/get-started/ &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>-->
+        <!--        </dependency>-->
+
+        <!--        &lt;!&ndash; Redisson: https://github.com/redisson/redisson &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.redisson</groupId>-->
+        <!--            <artifactId>redisson</artifactId>-->
+        <!--            <version>3.21.0</version>-->
+        <!--        </dependency>-->
+
+        <!--        &lt;!&ndash; Hotkey: https://gitee.com/jd-platform-opensource/hotkey &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <artifactId>hotkey-client</artifactId>-->
+        <!--            <groupId>com.jd.platform.hotkey</groupId>-->
+        <!--            <version>0.0.4-SNAPSHOT</version>-->
+        <!--            <scope>system</scope>-->
+        <!--            <systemPath>${project.basedir}/lib/hotkey-client-0.0.4-SNAPSHOT-jar-with-dependencies.jar</systemPath>-->
+        <!--        </dependency>-->
+
+        <!-- 特殊依赖 -->
+        <!-- OApiCli SDK -->
         <dependency>
             <groupId>cn.com.edtechhub</groupId>
             <artifactId>work-oapicli-sdk</artifactId>
@@ -169,26 +266,46 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                <groupId>
+                    org.springframework.boot
+                </groupId>
+                <artifactId>
+                    spring-boot-maven-plugin
+                </artifactId>
                 <configuration>
-                    <includeSystemScope>true</includeSystemScope> <!-- 将作用域为 system 的依赖也包含在打包中 -->
+                    <includeSystemScope>
+                        true
+                    </includeSystemScope> <!-- 将作用域为 system 的依赖也包含在打包中 -->
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
+                <groupId>
+                    org.apache.maven.plugins
+                </groupId>
+                <artifactId>
+                    maven-compiler-plugin
+                </artifactId>
                 <configuration>
-                    <source>8</source>
-                    <target>8</target>
+                    <source>
+                        8
+                    </source>
+                    <target>
+                        8
+                    </target>
                 </configuration>
             </plugin>
             <!-- 解决测试时的报错 -->
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
+                <groupId>
+                    org.apache.maven.plugins
+                </groupId>
+                <artifactId>
+                    maven-surefire-plugin
+                </artifactId>
                 <configuration>
-                    <argLine>-javaagent:${settings.localRepository}/net/bytebuddy/byte-buddy-agent/1.15.11/byte-buddy-agent-1.15.11.jar</argLine>
+                    <argLine>
+                        -javaagent:${settings.localRepository}/net/bytebuddy/byte-buddy-agent/1.15.11/byte-buddy-agent-1.15.11.jar
+                    </argLine>
                 </configuration>
             </plugin>
         </plugins>

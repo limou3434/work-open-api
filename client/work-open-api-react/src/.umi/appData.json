@@ -93,7 +93,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "register",
       "type": "preset",
@@ -106,7 +106,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 9
+        "register": 3
       },
       "enableBy": "register",
       "type": "preset",
@@ -153,7 +153,7 @@
             0
           ]
         },
-        "register": 3
+        "register": 2
       },
       "enableBy": "register",
       "type": "plugin",
@@ -170,7 +170,7 @@
             1
           ]
         },
-        "register": 0
+        "register": 1
       },
       "enableBy": "register",
       "type": "plugin",
@@ -187,7 +187,7 @@
             0
           ]
         },
-        "register": 1
+        "register": 0
       },
       "enableBy": "register",
       "type": "plugin",
@@ -201,7 +201,7 @@
       "time": {
         "hooks": {
           "modifyAppData": [
-            33
+            29
           ]
         },
         "register": 16
@@ -217,7 +217,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register",
       "type": "plugin",
@@ -231,10 +231,10 @@
       "time": {
         "hooks": {
           "onCheckConfig": [
-            1
+            0
           ],
           "onCheck": [
-            1
+            0
           ]
         },
         "register": 1
@@ -284,7 +284,7 @@
             0
           ]
         },
-        "register": 5
+        "register": 4
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1180,7 +1180,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 67
+        "register": 63
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1193,7 +1193,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 51
+        "register": 49
       },
       "enableBy": "config",
       "type": "plugin",
@@ -1206,7 +1206,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 16
+        "register": 13
       },
       "enableBy": "config",
       "type": "plugin",
@@ -1223,7 +1223,7 @@
             0
           ]
         },
-        "register": 0
+        "register": 1
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1236,7 +1236,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1329,7 +1329,7 @@
             0
           ]
         },
-        "register": 0
+        "register": 1
       },
       "type": "plugin",
       "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/polyfill/polyfill.js",
@@ -1341,7 +1341,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1354,7 +1354,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1380,7 +1380,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1393,7 +1393,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 3
+        "register": 2
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1406,7 +1406,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "config",
       "type": "plugin",
@@ -1419,7 +1419,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "type": "plugin",
       "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/routeProps/routeProps.js",
@@ -1521,7 +1521,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "type": "plugin",
       "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/features/test/test.js",
@@ -1533,7 +1533,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "config",
       "type": "plugin",
@@ -1559,7 +1559,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "config",
       "type": "plugin",
@@ -1613,7 +1613,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "config",
       "type": "plugin",
@@ -1676,7 +1676,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 3
+        "register": 2
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1689,7 +1689,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 28
+        "register": 25
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1709,7 +1709,7 @@
             0
           ]
         },
-        "register": 21
+        "register": 19
       },
       "type": "plugin",
       "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/preset-umi/dist/commands/dev/dev.js",
@@ -1734,7 +1734,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1747,7 +1747,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1838,7 +1838,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1851,7 +1851,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1877,7 +1877,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1890,7 +1890,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "register",
       "type": "plugin",
@@ -1968,7 +1968,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register",
       "type": "plugin",
@@ -2009,7 +2009,7 @@
       },
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "type": "plugin",
       "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/analytics.js",
@@ -2028,7 +2028,7 @@
             0
           ]
         },
-        "register": 2
+        "register": 3
       },
       "type": "plugin",
       "path": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/@umijs/plugins/dist/antd.js",
@@ -2053,7 +2053,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "config",
       "type": "plugin",
@@ -2091,7 +2091,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 2
       },
       "enableBy": "config",
       "type": "plugin",
@@ -2104,7 +2104,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 2
+        "register": 1
       },
       "enableBy": "config",
       "type": "plugin",
@@ -2143,7 +2143,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register",
       "type": "plugin",
@@ -2180,7 +2180,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "config",
       "type": "plugin",
@@ -2193,7 +2193,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "config",
       "type": "plugin",
@@ -2206,7 +2206,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "config",
       "type": "plugin",
@@ -2232,7 +2232,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "config",
       "type": "plugin",
@@ -2266,7 +2266,7 @@
             0
           ]
         },
-        "register": 1
+        "register": 0
       },
       "enableBy": "register",
       "type": "plugin",
@@ -2283,7 +2283,7 @@
             0
           ]
         },
-        "register": 0
+        "register": 1
       },
       "enableBy": "register",
       "type": "plugin",
@@ -2297,7 +2297,7 @@
       "time": {
         "hooks": {
           "modifyConfig": [
-            1
+            0
           ]
         },
         "register": 0
@@ -2333,7 +2333,7 @@
             0
           ]
         },
-        "register": 438
+        "register": 410
       },
       "enableBy": "config",
       "type": "plugin",
@@ -2346,7 +2346,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 18
+        "register": 13
       },
       "enableBy": "config",
       "type": "plugin",
@@ -2361,7 +2361,7 @@
       },
       "time": {
         "hooks": {},
-        "register": 0
+        "register": 1
       },
       "enableBy": "config",
       "type": "plugin",
@@ -2374,7 +2374,7 @@
       "config": {},
       "time": {
         "hooks": {},
-        "register": 1
+        "register": 0
       },
       "enableBy": "register",
       "type": "plugin",
@@ -2763,7 +2763,7 @@
   "faviconFiles": [],
   "port": 3000,
   "host": "127.0.0.1",
-  "ip": "192.168.0.44",
+  "ip": "192.168.2.60",
   "antd": {
     "pkgPath": "/home/ljp/git/edtechhub/work-open-api/client/work-open-api-react/node_modules/antd",
     "version": "4.24.16"

@@ -9,5 +9,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 * @createDate 2025-07-06 17:27:08
 */
 public interface InterfaceInfoService extends IService<InterfaceInfo> {
-
+    void validInterfaceInfo(InterfaceInfo interfaceInfo, boolean add);
 }

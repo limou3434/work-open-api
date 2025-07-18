@@ -1,22 +1,16 @@
-package cn.com.edtechhub.workopenapi.model.rq.user;
+package cn.com.edtechhub.workopenapi.model.request.user;
 
-import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.io.Serializable;
 
 /**
- * 用户更新请求
+ * 用户创建请求
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/limou3434">limou3434</a>
  */
 @Data
-public class UserUpdateRequest implements Serializable {
-    /**
-     * id
-     */
-    private Long id;
+public class UserAddRequest implements Serializable {
 
     /**
      * 用户昵称
@@ -48,6 +42,5 @@ public class UserUpdateRequest implements Serializable {
      */
     private String userPassword;
 
-    @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 }

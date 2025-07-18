@@ -1,4 +1,4 @@
-package cn.com.edtechhub.workopenapi.model.rq.user;
+package cn.com.edtechhub.workopenapi.model.request.user;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -9,8 +9,7 @@ import java.util.Date;
 /**
  * 用户查询请求
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/limou3434">limou3434</a>
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
