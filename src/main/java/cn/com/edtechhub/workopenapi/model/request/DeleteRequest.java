@@ -1,23 +1,25 @@
-package cn.com.edtechhub.workopenapi.model.request.interfaceinfo;
+package cn.com.edtechhub.workopenapi.model.request;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.io.Serializable;
 
 /**
- * 删除请求
+ * 用户删除请求
  *
  * @author <a href="https://github.com/limou3434">limou3434</a>
  */
 @Data
-public class InterfaceInfoDeleteRequest implements Serializable {
+public class DeleteRequest implements Serializable {
 
     /**
-     * 主键
+     * id
      */
     private Long id;
 
     /// 序列化字段 ///
+    @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
 }

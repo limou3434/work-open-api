@@ -1,17 +1,18 @@
 package cn.com.edtechhub.workopenapi.controller;
 
-import cn.com.edtechhub.workopenapi.common.exception.BusinessException;
 import cn.com.edtechhub.workopenapi.common.exception.ErrorCode;
-import cn.com.edtechhub.workopenapi.model.entity.User;
-import cn.com.edtechhub.workopenapi.model.request.user.UserLoginRequest;
-import cn.com.edtechhub.workopenapi.model.request.user.UserQueryRequest;
-import cn.com.edtechhub.workopenapi.model.vo.UserVO;
+import cn.com.edtechhub.workopenapi.common.exception.ThrowUtils;
 import cn.com.edtechhub.workopenapi.common.response.BaseResponse;
 import cn.com.edtechhub.workopenapi.common.response.ResultUtils;
+import cn.com.edtechhub.workopenapi.model.entity.User;
+import cn.com.edtechhub.workopenapi.model.request.DeleteRequest;
+import cn.com.edtechhub.workopenapi.model.request.user.*;
+import cn.com.edtechhub.workopenapi.model.vo.UserVO;
 import cn.com.edtechhub.workopenapi.service.UserService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
+import io.swagger.v3.oas.annotations.Operation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
@@ -30,142 +31,79 @@ import java.util.stream.Collectors;
 @RequestMapping("/user")
 public class UserController {
 
+    /**
+     * 注入用户服务依赖
+     */
     @Resource
     private UserService userService;
 
-    // region 登录相关
+    /// 增删查改 ///
 
-//    /**
-//     * 用户注册
-//     *
-//     * @param userRegisterRequest
-//     * @return
-//     */
-//    @PostMapping("/register")
-//    public BaseResponse<Long> userRegister(@RequestBody UserRegisterRequest userRegisterRequest) {
-//        if (userRegisterRequest == null) {
-//            throw new BusinessException(CodeBindMessageEnums.PARAMS_ERROR);
-//        }
-//        String userAccount = userRegisterRequest.getUserAccount();
-//        String userPassword = userRegisterRequest.getUserPassword();
-//        String checkPassword = userRegisterRequest.getCheckPassword();
-//        if (StringUtils.isAnyBlank(userAccount, userPassword, checkPassword)) {
-//            return null;
-//        }
-//        long result = userService.userRegister(userAccount, userPassword, checkPassword);
-//        return ResultUtils.success(result);
-//    }
+    @Operation(summary = "创建用户")
+    @PostMapping("/add")
+    public BaseResponse<Long> addUser(@RequestBody UserAddRequest userAddRequest) {
+        // 校验参数
+        ThrowUtils.throwIf("请求体不能为空", userAddRequest == null, ErrorCode.PARAMS_ERROR);
+        assert userAddRequest != null;
 
-    /**
-     * 用户登录
-     */
-    @PostMapping("/login")
-    public BaseResponse<User> userLogin(@RequestBody UserLoginRequest userLoginRequest, HttpServletRequest request) {
-        String userAccount = userLoginRequest.getUserAccount();
-        String userPassword = userLoginRequest.getUserPassword();
-        if (StringUtils.isAnyBlank(userAccount, userPassword)) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR, "");
-        }
-        User user = userService.userLogin(userAccount, userPassword, request);
-        return ResultUtils.success(user);
+        // 业务处理
+        User user = new User();
+        BeanUtils.copyProperties(userAddRequest, user);
+        boolean result = userService.save(user);
+        ThrowUtils.throwIf("操作失败", !result, ErrorCode.OPERATION_ERROR);
+
+        // 返回结果
+        return ResultUtils.success(user.getId());
     }
 
-//    /**
-//     * 用户注销
-//     *
-//     * @param request
-//     * @return
-//     */
-//    @PostMapping("/logout")
-//    public BaseResponse<Boolean> userLogout(HttpServletRequest request) {
-//        if (request == null) {
-//            throw new BusinessException(CodeBindMessageEnums.PARAMS_ERROR);
-//        }
-//        boolean result = userService.userLogout(request);
-//        return ResultUtils.success(result);
-//    }
+    @Operation(summary = "删除用户")
+    @PostMapping("/delete")
+    public BaseResponse<Boolean> deleteUser(@RequestBody DeleteRequest deleteRequest) {
+        // 校验参数
+        ThrowUtils.throwIf("请求体不能为空", deleteRequest == null, ErrorCode.PARAMS_ERROR);
+        assert deleteRequest != null;
 
-    /**
-     * 获取当前登录用户
-     */
-    @GetMapping("/get/login")
-    public BaseResponse<UserVO> getLoginUser(HttpServletRequest request) {
-        User user = userService.getLoginUser(request);
-        UserVO userVO = new UserVO();
-        BeanUtils.copyProperties(user, userVO);
-        return ResultUtils.success(userVO);
+        ThrowUtils.throwIf("用户标识非法", deleteRequest.getId() <= 0, ErrorCode.PARAMS_ERROR);
+
+        // 业务处理
+        boolean result = userService.removeById(deleteRequest.getId());
+
+        // 返回结果
+        return ResultUtils.success(result);
     }
 
-//    // endregion
-//
-//    // region 增删改查
-//
-//    /**
-//     * 创建用户
-//     *
-//     * @param userAddRequest
-//     * @param request
-//     * @return
-//     */
-//    @PostMapping("/add")
-//    public BaseResponse<Long> addUser(@RequestBody UserAddRequest userAddRequest, HttpServletRequest request) {
-//        if (userAddRequest == null) {
-//            throw new BusinessException(CodeBindMessageEnums.PARAMS_ERROR);
-//        }
-//        User user = new User();
-//        BeanUtils.copyProperties(userAddRequest, user);
-//        boolean result = userService.save(user);
-//        if (!result) {
-//            throw new BusinessException(CodeBindMessageEnums.OPERATION_ERROR);
-//        }
-//        return ResultUtils.success(user.getId());
-//    }
-//
-//    /**
-//     * 删除用户
-//     *
-//     * @param deleteRequest
-//     * @param request
-//     * @return
-//     */
-//    @PostMapping("/delete")
-//    public BaseResponse<Boolean> deleteUser(@RequestBody DeleteRequest deleteRequest, HttpServletRequest request) {
-//        if (deleteRequest == null || deleteRequest.getId() <= 0) {
-//            throw new BusinessException(CodeBindMessageEnums.PARAMS_ERROR);
-//        }
-//        boolean b = userService.removeById(deleteRequest.getId());
-//        return ResultUtils.success(b);
-//    }
-//
-//    /**
-//     * 更新用户
-//     *
-//     * @param userUpdateRequest
-//     * @param request
-//     * @return
-//     */
-//    @PostMapping("/update")
-//    public BaseResponse<Boolean> updateUser(@RequestBody UserUpdateRequest userUpdateRequest, HttpServletRequest request) {
-//        if (userUpdateRequest == null || userUpdateRequest.getId() == null) {
-//            throw new BusinessException(CodeBindMessageEnums.PARAMS_ERROR);
-//        }
-//        User user = new User();
-//        BeanUtils.copyProperties(userUpdateRequest, user);
-//        boolean result = userService.updateById(user);
-//        return ResultUtils.success(result);
-//    }
+    @Operation(summary = "更新用户")
+    @PostMapping("/update")
+    public BaseResponse<Boolean> updateUser(@RequestBody UserUpdateRequest userUpdateRequest) {
+        // 校验参数
+        ThrowUtils.throwIf("请求体不能为空", userUpdateRequest == null, ErrorCode.PARAMS_ERROR);
+        assert userUpdateRequest != null;
+
+        ThrowUtils.throwIf("用户标识非法", userUpdateRequest.getId() <= 0, ErrorCode.PARAMS_ERROR);
+
+        // 业务处理
+        User user = new User();
+        BeanUtils.copyProperties(userUpdateRequest, user);
+        boolean result = userService.updateById(user);
+
+        // 返回结果
+        return ResultUtils.success(result);
+    }
 
     /**
      * 根据 id 获取用户
      */
     @GetMapping("/get")
-    public BaseResponse<UserVO> getUserById(int id, HttpServletRequest request) {
-        if (id <= 0) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR, "");
-        }
+    public BaseResponse<UserVO> getUserById(int id) {
+        // 校验参数
+        ThrowUtils.throwIf("用户标识非法", id <= 0, ErrorCode.PARAMS_ERROR);
+
+        // 业务处理
         User user = userService.getById(id);
         UserVO userVO = new UserVO();
         BeanUtils.copyProperties(user, userVO);
+
+        // 返回结果
         return ResultUtils.success(userVO);
     }
 
@@ -173,11 +111,15 @@ public class UserController {
      * 获取用户列表
      */
     @GetMapping("/list")
-    public BaseResponse<List<UserVO>> listUser(UserQueryRequest userQueryRequest, HttpServletRequest request) {
+    public BaseResponse<List<UserVO>> listUser(UserQueryRequest userQueryRequest) {
+        // 校验参数
+        ThrowUtils.throwIf("请求体不能为空", userQueryRequest == null, ErrorCode.PARAMS_ERROR);
+        assert userQueryRequest != null;
+
+        // 业务处理
         User userQuery = new User();
-        if (userQueryRequest != null) {
-            BeanUtils.copyProperties(userQueryRequest, userQuery);
-        }
+        BeanUtils.copyProperties(userQueryRequest, userQuery);
+
         QueryWrapper<User> queryWrapper = new QueryWrapper<>(userQuery);
         List<User> userList = userService.list(queryWrapper);
         List<UserVO> userVOList = userList.stream().map(user -> {
@@ -185,6 +127,8 @@ public class UserController {
             BeanUtils.copyProperties(user, userVO);
             return userVO;
         }).collect(Collectors.toList());
+
+        // 返回结果
         return ResultUtils.success(userVOList);
     }
 
@@ -192,15 +136,18 @@ public class UserController {
      * 分页获取用户列表
      */
     @GetMapping("/list/page")
-    public BaseResponse<Page<UserVO>> listUserByPage(UserQueryRequest userQueryRequest, HttpServletRequest request) {
-        long current = 1;
-        long size = 10;
+    public BaseResponse<Page<UserVO>> listUserByPage(UserQueryRequest userQueryRequest) {
+        // 校验参数
+        ThrowUtils.throwIf("请求体不能为空", userQueryRequest == null, ErrorCode.PARAMS_ERROR);
+        assert userQueryRequest != null;
+
+        // 业务处理
         User userQuery = new User();
-        if (userQueryRequest != null) {
-            BeanUtils.copyProperties(userQueryRequest, userQuery);
-            current = userQueryRequest.getCurrent();
-            size = userQueryRequest.getPageSize();
-        }
+
+        BeanUtils.copyProperties(userQueryRequest, userQuery);
+        long current = userQueryRequest.getCurrent();
+        long size = userQueryRequest.getPageSize();
+
         QueryWrapper<User> queryWrapper = new QueryWrapper<>(userQuery);
         Page<User> userPage = userService.page(new Page<>(current, size), queryWrapper);
         Page<UserVO> userVOPage = new PageDTO<>(userPage.getCurrent(), userPage.getSize(), userPage.getTotal());
@@ -210,8 +157,89 @@ public class UserController {
             return userVO;
         }).collect(Collectors.toList());
         userVOPage.setRecords(userVOList);
+
+        // 返回结果
         return ResultUtils.success(userVOPage);
     }
 
-    // endregion
+    /// 功能接口 ///
+
+    /**
+     * 用户注册
+     *
+     * @param userRegisterRequest 用户注册请求体
+     * @return 用户标识
+     */
+    @PostMapping("/register")
+    public BaseResponse<Long> userRegister(@RequestBody UserRegisterRequest userRegisterRequest) {
+        // 校验参数
+        ThrowUtils.throwIf("请求体不能为空", userRegisterRequest == null, ErrorCode.PARAMS_ERROR);
+        assert userRegisterRequest != null;
+
+        String userAccount = userRegisterRequest.getUserAccount();
+        ThrowUtils.throwIf("用户账号不能为空", StringUtils.isBlank(userAccount), ErrorCode.PARAMS_ERROR);
+
+        String userPassword = userRegisterRequest.getUserPassword();
+        ThrowUtils.throwIf("用户密码不能为空", StringUtils.isBlank(userPassword), ErrorCode.PARAMS_ERROR);
+
+        String checkPassword = userRegisterRequest.getCheckPassword();
+        ThrowUtils.throwIf("确认密码不能为空", StringUtils.isBlank(checkPassword), ErrorCode.PARAMS_ERROR);
+
+        // 业务处理
+        long userId = userService.userRegister(userAccount, userPassword, checkPassword);
+
+        // 返回结果
+        return ResultUtils.success(userId);
+    }
+
+    /**
+     * 用户登入
+     */
+    @PostMapping("/login")
+    public BaseResponse<User> userLogin(@RequestBody UserLoginRequest userLoginRequest) {
+        // 校验参数
+        ThrowUtils.throwIf("请求体不能为空", userLoginRequest == null, ErrorCode.PARAMS_ERROR);
+        assert userLoginRequest != null;
+
+        String userAccount = userLoginRequest.getUserAccount();
+        ThrowUtils.throwIf("用户账号不能为空", StringUtils.isBlank(userAccount), ErrorCode.PARAMS_ERROR);
+
+        String userPassword = userLoginRequest.getUserPassword();
+        ThrowUtils.throwIf("用户密码不能为空", StringUtils.isBlank(userPassword), ErrorCode.PARAMS_ERROR);
+
+        // 业务处理
+        User user = userService.userLogin(userAccount, userPassword);
+
+        // 返回结果
+        return ResultUtils.success(user);
+    }
+
+    /**
+     * 用户登出
+     *
+     * @return 是否登出成功
+     */
+    @PostMapping("/logout")
+    public BaseResponse<Boolean> userLogout() {
+        // 参数校验
+        // ...
+
+        // 业务处理
+        Boolean result = userService.userLogout();
+
+        // 返回结果
+        return ResultUtils.success(result);
+    }
+
+    /**
+     * 获取当前登录用户
+     */
+    @GetMapping("/get/login")
+    public BaseResponse<UserVO> getLoginUser() {
+        User user = userService.getLoginUser();
+        UserVO userVO = new UserVO();
+        BeanUtils.copyProperties(user, userVO);
+        return ResultUtils.success(userVO);
+    }
+
 }
