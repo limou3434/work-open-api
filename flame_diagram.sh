@@ -77,9 +77,9 @@ echo "已选择 PID: $pid"
 
 # 分析进程堆栈后生成火焰图
 # shellcheck disable=SC2086
-echo "正在生成火焰图..."
+echo "正在生成火焰图, 生成过程中必须有操作, 否则将会出错..."
 mkdir -p ./temp
 # 工具从 https://github.com/async-profiler/async-profiler 和 https://github.com/brendangregg/FlameGraph 中获取
-./src/main/resources/hotgraph/work-async-profiler/bin/asprof -d 10 -o collapsed -f ./temp/hotgraph.txt $pid &&
+./src/main/resources/hotgraph/work-async-profiler/bin/asprof -d 60 -o collapsed -f ./temp/hotgraph.txt $pid &&
 ./src/main/resources/hotgraph/work-flame-graph/flamegraph.pl ./temp/hotgraph.txt > ./temp/hotgraph.svg &&
 echo "火焰图已生成, 位于 --> ./temp/hotgraph.svg"
