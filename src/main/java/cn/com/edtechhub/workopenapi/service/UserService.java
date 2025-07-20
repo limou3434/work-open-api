@@ -44,10 +44,10 @@ public interface UserService extends IService<User> {
     User getLoginUser();
 
     /**
-     * 是否是管理员
+     * 判断当前登陆用户是否为管理员
      *
      * @return 是否是管理员
      */
-    public Boolean isAdmin();
+    Boolean isAdminOfLoginUser();
 
 }

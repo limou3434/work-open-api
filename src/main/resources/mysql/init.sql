@@ -28,23 +28,6 @@ CREATE TABLE IF NOT EXISTS `user`
         UNIQUE (`user_account`)
 ) COMMENT '用户表';
 
-INSERT INTO `user` (`user_name`,
-                    `user_account`,
-                    `user_avatar`,
-                    `gender`,
-                    `user_role`,
-                    `user_password`,
-                    `access_key`,
-                    `secret_key`)
-VALUES ('limou',
-        'limou',
-        'https://admin.com',
-        1,
-        'admin',
-        'bde672b1737093d5f9ad55ccc26f32eb',
-        'limou3434',
-        'abcdefgh');
-
 CREATE TABLE IF NOT EXISTS `interface_info`
 (
     `id`              BIGINT                             NOT NULL AUTO_INCREMENT COMMENT '唯一标识' PRIMARY KEY,
@@ -75,6 +58,31 @@ CREATE TABLE IF NOT EXISTS `user_interface_info`
 ) COMMENT '用户调用接口关联表';
 
 -- 项目测试
+INSERT INTO `user` (`user_name`,
+                    `user_account`,
+                    `user_avatar`,
+                    `gender`,
+                    `user_role`,
+                    `user_password`,
+                    `access_key`,
+                    `secret_key`)
+VALUES ('limou',
+        'limou',
+        'https://avatars.githubusercontent.com/u/113878415?s=400&u=9f10b63e033c9504615bc475581441478424e04b&v=4',
+        1,
+        'admin',
+        'bde672b1737093d5f9ad55ccc26f32eb',
+        'limou3434',
+        'abcdefgh'),
+       ('dimou',
+        'dimou',
+        'https://picx.zhimg.com/v2-e3034a40544d588e4f630b3ec7210030_xll.jpg?source=32738c0c&needBackground=1',
+        1,
+        'user',
+        'bde672b1737093d5f9ad55ccc26f32eb',
+        'dimou3434',
+        'abcdefgh');
+
 INSERT INTO `interface_info` (`name`,
                               `description`,
                               `url`,

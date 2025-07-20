@@ -113,7 +113,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
      * @return 是否是管理员
      */
     @Override
-    public Boolean isAdmin() {
+    public Boolean isAdminOfLoginUser() {
         User user = this.getLoginUser();
         if (user == null) {
             return false;

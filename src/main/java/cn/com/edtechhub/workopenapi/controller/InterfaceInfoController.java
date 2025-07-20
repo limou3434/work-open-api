@@ -106,7 +106,7 @@ public class InterfaceInfoController {
             throw new BusinessException(ErrorCode.NOT_FOUND_ERROR, "");
         }
         // 仅本人或管理员可修改
-        if (!oldInterfaceInfo.getUserId().equals(user.getId()) && !userService.isAdmin()) {
+        if (!oldInterfaceInfo.getUserId().equals(user.getId()) && !userService.isAdminOfLoginUser()) {
             throw new BusinessException(ErrorCode.NO_AUTH_ERROR, "");
         }
         boolean result = interfaceInfoService.updateById(interfaceInfo);

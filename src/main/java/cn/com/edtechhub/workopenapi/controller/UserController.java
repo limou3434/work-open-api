@@ -9,6 +9,9 @@ import cn.com.edtechhub.workopenapi.common.request.DeleteRequest;
 import cn.com.edtechhub.workopenapi.model.request.user.*;
 import cn.com.edtechhub.workopenapi.model.vo.UserVO;
 import cn.com.edtechhub.workopenapi.service.UserService;
+import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.annotation.SaCheckRole;
+import cn.dev33.satoken.annotation.SaIgnore;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.plugins.pagination.PageDTO;
@@ -39,6 +42,8 @@ public class UserController {
     /// 增删查改 ///
 
     @Operation(summary = "创建用户")
+    @SaCheckLogin
+    @SaCheckRole("admin")
     @PostMapping("/add")
     public BaseResponse<Long> addUser(@RequestBody UserAddRequest userAddRequest) {
         // 校验参数
@@ -56,6 +61,8 @@ public class UserController {
     }
 
     @Operation(summary = "删除用户")
+    @SaCheckLogin
+    @SaCheckRole("admin")
     @PostMapping("/delete")
     public BaseResponse<Boolean> deleteUser(@RequestBody DeleteRequest deleteRequest) {
         // 校验参数
@@ -72,6 +79,8 @@ public class UserController {
     }
 
     @Operation(summary = "更新用户")
+    @SaCheckLogin
+    @SaCheckRole("admin")
     @PostMapping("/update")
     public BaseResponse<Boolean> updateUser(@RequestBody UserUpdateRequest userUpdateRequest) {
         // 校验参数
@@ -90,6 +99,8 @@ public class UserController {
     }
 
     @Operation(summary = "根据标识获取用户信息")
+    @SaCheckLogin
+    @SaCheckRole("admin")
     @GetMapping("/get")
     public BaseResponse<UserVO> getUserById(int id) {
         // 校验参数
@@ -105,6 +116,8 @@ public class UserController {
     }
 
     @Operation(summary = "根据参数获取用户列表")
+    @SaCheckLogin
+    @SaCheckRole("admin")
     @GetMapping("/list")
     public BaseResponse<List<UserVO>> listUser(UserQueryRequest userQueryRequest) {
         // 校验参数
@@ -128,6 +141,8 @@ public class UserController {
     }
 
     @Operation(summary = "根据参数获取用户分页")
+    @SaCheckLogin
+    @SaCheckRole("admin")
     @GetMapping("/list/page")
     public BaseResponse<Page<UserVO>> listUserByPage(UserQueryRequest userQueryRequest) {
         // 校验参数
@@ -157,12 +172,8 @@ public class UserController {
 
     /// 功能接口 ///
 
-    /**
-     * 用户注册
-     *
-     * @param userRegisterRequest 用户注册请求体
-     * @return 用户标识
-     */
+    @Operation(summary = "用户注册")
+    @SaIgnore
     @PostMapping("/register")
     public BaseResponse<Long> userRegister(@RequestBody UserRegisterRequest userRegisterRequest) {
         // 校验参数
@@ -185,9 +196,8 @@ public class UserController {
         return ResultUtils.success(userId);
     }
 
-    /**
-     * 用户登入
-     */
+    @Operation(summary = "用户登入")
+    @SaIgnore
     @PostMapping("/login")
     public BaseResponse<User> userLogin(@RequestBody UserLoginRequest userLoginRequest) {
         // 校验参数
@@ -207,11 +217,8 @@ public class UserController {
         return ResultUtils.success(user);
     }
 
-    /**
-     * 用户登出
-     *
-     * @return 是否登出成功
-     */
+    @Operation(summary = "用户登出")
+    @SaCheckLogin
     @PostMapping("/logout")
     public BaseResponse<Boolean> userLogout() {
         // 参数校验
@@ -224,9 +231,8 @@ public class UserController {
         return ResultUtils.success(result);
     }
 
-    /**
-     * 获取当前登录用户
-     */
+    @Operation(summary = "获取当前登录用户登陆信息")
+    @SaCheckLogin
     @GetMapping("/get/login")
     public BaseResponse<UserVO> getLoginUser() {
         User user = userService.getLoginUser();
