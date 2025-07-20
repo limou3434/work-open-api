@@ -24,10 +24,9 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 接口管理
+ * 用户接口关联接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/limou3434">limou3434</a>
  */
 @RestController
 @RequestMapping("/userInterfaceInfo")

@@ -1,5 +1,6 @@
 package cn.com.edtechhub.workopenapi.model.request.interfaceinfo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -23,6 +24,7 @@ public class InterfaceInfoInvokeRequest implements Serializable {
     private String userRequestParams;
 
     /// 序列化字段 ///
+    @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
 }

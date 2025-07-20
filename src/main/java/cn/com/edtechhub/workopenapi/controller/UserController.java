@@ -69,7 +69,7 @@ public class UserController {
         ThrowUtils.throwIf("请求体不能为空", deleteRequest == null, ErrorCode.PARAMS_ERROR);
         assert deleteRequest != null;
 
-        ThrowUtils.throwIf("用户标识非法", deleteRequest.getId() <= 0, ErrorCode.PARAMS_ERROR);
+        ThrowUtils.throwIf("实体标识非法", deleteRequest.getId() <= 0, ErrorCode.PARAMS_ERROR);
 
         // 业务处理
         boolean result = userService.removeById(deleteRequest.getId());

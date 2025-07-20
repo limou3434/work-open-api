@@ -11,8 +11,8 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface InterfaceInfoService extends IService<InterfaceInfo> {
 
     /**
-     * 校验接口信息表
-     * @param interfaceInfo 接口信息表
+     * 校验接口信息, 支持添加或者更新
+     * @param interfaceInfo 接口信息
      * @param add 是否添加
      */
     void validInterfaceInfo(InterfaceInfo interfaceInfo, boolean add);

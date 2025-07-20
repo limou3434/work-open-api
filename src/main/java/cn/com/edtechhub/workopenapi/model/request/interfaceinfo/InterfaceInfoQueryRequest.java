@@ -1,6 +1,7 @@
 package cn.com.edtechhub.workopenapi.model.request.interfaceinfo;
 
 import cn.com.edtechhub.workopenapi.common.request.PageRequest;
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -61,6 +62,7 @@ public class InterfaceInfoQueryRequest extends PageRequest implements Serializab
     private Long userId;
 
     /// 序列化字段 ///
+    @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
 }
