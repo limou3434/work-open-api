@@ -142,7 +142,7 @@ public class InterfaceInfoController {
         return ResultUtils.success(interfaceInfo);
     }
 
-    @Operation(summary = "👑获取接口信息列表")
+    @Operation(summary = "获取接口信息列表")
     @SaCheckLogin
     @SaCheckRole("admin")
     @GetMapping("/list")

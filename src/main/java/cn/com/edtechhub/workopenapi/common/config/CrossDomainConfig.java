@@ -25,7 +25,7 @@ public class CrossDomainConfig implements WebMvcConfigurer, Config {
     /**
      * 开发环境客户端主机
      */
-    private static final String DEVELOPMENT_CLIENT_HOST = "http://127.0.0.1:8080";
+    private static final String DEVELOPMENT_CLIENT_HOST = "http://127.0.0.1:3000";
 
     /**
      * 测试环境客户端主机

@@ -2,7 +2,6 @@ package cn.com.edtechhub.workopenapi.manger.satoken;
 
 import cn.com.edtechhub.workopenapi.constants.UserConstant;
 import cn.com.edtechhub.workopenapi.model.entity.User;
-import cn.com.edtechhub.workopenapi.model.enums.UserRoleEnum;
 import cn.dev33.satoken.stp.StpInterface;
 import cn.dev33.satoken.stp.StpUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -30,11 +29,14 @@ public class SaTokenManager implements StpInterface {
 
         // 获取当前登录用户信息
         User user = (User) StpUtil.getSessionByLoginId(loginId).get(UserConstant.USER_LOGIN_STATE); // 直接从会话缓存中获取用户的所有信息
-        UserRoleEnum userRole = UserRoleEnum.getEnums(user.getUserRole()); // 由于在本数据库中为了拓展性使用数字来标识身份, 因此需要做一层转化
+        // UserRoleEnum userRole = UserRoleEnum.getEnums(user.getUserRole()); // 由于在本数据库中为了拓展性使用数字来标识身份, 因此需要做一层转化
 
-        // 返回角色标识集合
-        if (userRole != null) {
-            list.add(userRole.getDescription());
+        // 返回角色标识集合 // TODO: 后期修改
+        // if (userRole != null) {
+        //     list.add(userRole.getDescription());
+        // }
+        if (user != null) {
+            list.add(user.getUserRole());
         }
         log.debug("本次调用用户携带的角色标识集合为: {}", list);
         return list;
