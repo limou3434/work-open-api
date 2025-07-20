@@ -13,8 +13,10 @@ import cn.com.edtechhub.workopenapi.model.request.userinterfaceinfo.UserInterfac
 import cn.com.edtechhub.workopenapi.model.request.userinterfaceinfo.UserInterfaceInfoUpdateRequest;
 import cn.com.edtechhub.workopenapi.service.UserInterfaceInfoService;
 import cn.com.edtechhub.workopenapi.service.UserService;
+import cn.dev33.satoken.annotation.SaCheckLogin;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
@@ -45,12 +47,8 @@ public class UserInterfaceInfoController {
     @Resource
     private UserService userService;
 
-    /**
-     * 创建
-     *
-     * @param userInterfaceInfoAddRequest 创建请求
-     * @return
-     */
+    @Operation(summary = "创建用户接口关联")
+    @SaCheckLogin
     @PostMapping("/add")
     public BaseResponse<Long> addUserInterfaceInfo(@RequestBody UserInterfaceInfoAddRequest userInterfaceInfoAddRequest) {
         if (userInterfaceInfoAddRequest == null) {
@@ -70,12 +68,8 @@ public class UserInterfaceInfoController {
         return ResultUtils.success(newUserInterfaceInfoId);
     }
 
-    /**
-     * 删除
-     *
-     * @param deleteRequest 删除请求
-     * @return 是否删除成功
-     */
+    @Operation(summary = "删除用户接口关联")
+    @SaCheckLogin
     @PostMapping("/delete")
     public BaseResponse<Boolean> deleteUserInterfaceInfo(@RequestBody DeleteRequest deleteRequest) {
         if (deleteRequest == null || deleteRequest.getId() <= 0) {
@@ -96,12 +90,8 @@ public class UserInterfaceInfoController {
         return ResultUtils.success(b);
     }
 
-    /**
-     * 更新
-     *
-     * @param userInterfaceInfoUpdateRequest 更新请求
-     * @return 是否更新成功
-     */
+    @Operation(summary = "更新用户接口关联")
+    @SaCheckLogin
     @PostMapping("/update")
     public BaseResponse<Boolean> updateUserInterfaceInfo(@RequestBody UserInterfaceInfoUpdateRequest userInterfaceInfoUpdateRequest) {
         if (userInterfaceInfoUpdateRequest == null || userInterfaceInfoUpdateRequest.getId() <= 0) {
@@ -126,12 +116,8 @@ public class UserInterfaceInfoController {
         return ResultUtils.success(result);
     }
 
-    /**
-     * 根据 id 获取
-     *
-     * @param id
-     * @return
-     */
+    @Operation(summary = "根据标识获取用户接口关联")
+    @SaCheckLogin
     @GetMapping("/get")
     public BaseResponse<UserInterfaceInfo> getUserInterfaceInfoById(long id) {
         if (id <= 0) {
@@ -141,12 +127,8 @@ public class UserInterfaceInfoController {
         return ResultUtils.success(userInterfaceInfo);
     }
 
-    /**
-     * 获取列表（仅管理员可使用）
-     *
-     * @param userInterfaceInfoQueryRequest 查询请求
-     * @return
-     */
+    @Operation(summary = "获取用户接口关联列表")
+    @SaCheckLogin
     @GetMapping("/list")
     public BaseResponse<List<UserInterfaceInfo>> listUserInterfaceInfo(UserInterfaceInfoQueryRequest userInterfaceInfoQueryRequest) {
         UserInterfaceInfo userInterfaceInfoQuery = new UserInterfaceInfo();
@@ -158,12 +140,8 @@ public class UserInterfaceInfoController {
         return ResultUtils.success(userInterfaceInfoList);
     }
 
-    /**
-     * 分页获取列表
-     *
-     * @param userInterfaceInfoQueryRequest 查询请求
-     * @return 分页
-     */
+    @Operation(summary = "获取用户接口关联分页")
+    @SaCheckLogin
     @GetMapping("/list/page")
     public BaseResponse<Page<UserInterfaceInfo>> listUserInterfaceInfoByPage(UserInterfaceInfoQueryRequest userInterfaceInfoQueryRequest) {
         if (userInterfaceInfoQueryRequest == null) {
