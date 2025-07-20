@@ -1,6 +1,7 @@
 package cn.com.edtechhub.workopenapi.model.request.userinterfaceinfo;
 
 import cn.com.edtechhub.workopenapi.common.request.PageRequest;
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -9,8 +10,7 @@ import java.io.Serializable;
 /**
  * 查询请求
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/limou3434">limou3434</a>
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -44,5 +44,9 @@ public class UserInterfaceInfoQueryRequest extends PageRequest implements Serial
      * 0-正常，1-禁用
      */
     private Integer status;
+
+    /// 序列化字段 ///
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
 }

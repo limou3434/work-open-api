@@ -1,4 +1,4 @@
-package cn.com.edtechhub.workopenapi.enums;
+package cn.com.edtechhub.workopenapi.model.enums;
 
 import lombok.Getter;
 

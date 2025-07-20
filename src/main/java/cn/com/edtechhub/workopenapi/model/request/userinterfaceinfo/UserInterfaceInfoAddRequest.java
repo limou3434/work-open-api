@@ -1,5 +1,6 @@
 package cn.com.edtechhub.workopenapi.model.request.userinterfaceinfo;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -7,8 +8,7 @@ import java.io.Serializable;
 /**
  * 创建请求
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author <a href="https://github.com/limou3434">limou3434</a>
  */
 @Data
 public class UserInterfaceInfoAddRequest implements Serializable {
@@ -32,5 +32,9 @@ public class UserInterfaceInfoAddRequest implements Serializable {
      * 剩余调用次数
      */
     private Integer leftNum;
+
+    /// 序列化字段 ///
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 
 }

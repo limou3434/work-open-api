@@ -1,11 +1,14 @@
-package cn.com.edtechhub.workopenapi.model.dto;
+package cn.com.edtechhub.workopenapi.model.request.interfaceinfo;
 
 import lombok.Data;
 
 import java.io.Serializable;
 
+/**
+ * 接口 id 请求
+ */
 @Data
-public class IdRequest implements Serializable {
+public class InterfaceInfoOnlineRequest implements Serializable {
 
     /**
      * 接口 id

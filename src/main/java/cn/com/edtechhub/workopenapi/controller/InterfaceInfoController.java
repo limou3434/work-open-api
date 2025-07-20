@@ -7,8 +7,8 @@ import cn.com.edtechhub.workopenapi.common.exception.ThrowUtils;
 import cn.com.edtechhub.workopenapi.common.response.BaseResponse;
 import cn.com.edtechhub.workopenapi.common.response.ResultUtils;
 import cn.com.edtechhub.workopenapi.constants.CommonConstant;
-import cn.com.edtechhub.workopenapi.enums.InterfaceInfoStatusEnum;
-import cn.com.edtechhub.workopenapi.model.dto.IdRequest;
+import cn.com.edtechhub.workopenapi.model.enums.InterfaceInfoStatusEnum;
+import cn.com.edtechhub.workopenapi.model.request.interfaceinfo.InterfaceInfoOnlineRequest;
 import cn.com.edtechhub.workopenapi.model.entity.InterfaceInfo;
 import cn.com.edtechhub.workopenapi.model.entity.User;
 import cn.com.edtechhub.workopenapi.common.request.DeleteRequest;
@@ -166,9 +166,9 @@ public class InterfaceInfoController {
 
     @Operation(summary = "👑发布接口")
     @PostMapping("/online")
-    public BaseResponse<Boolean> onlineInterfaceInfo(@RequestBody IdRequest idRequest) {
+    public BaseResponse<Boolean> onlineInterfaceInfo(@RequestBody InterfaceInfoOnlineRequest interfaceInfoOnlineRequest) {
         // 校验参数
-        long id = idRequest.getId();
+        long id = interfaceInfoOnlineRequest.getId();
         ThrowUtils.throwIf("接口标识非法", id <= 0, ErrorCode.PARAMS_ERROR);
 
         InterfaceInfo oldInterfaceInfo = interfaceInfoService.getById(id);
@@ -193,9 +193,9 @@ public class InterfaceInfoController {
 
     @Operation(summary = "👑下线接口")
     @PostMapping("/offline")
-    public BaseResponse<Boolean> offlineInterfaceInfo(@RequestBody IdRequest idRequest) {
+    public BaseResponse<Boolean> offlineInterfaceInfo(@RequestBody InterfaceInfoOnlineRequest interfaceInfoOnlineRequest) {
         // 校验参数
-        long id = idRequest.getId();
+        long id = interfaceInfoOnlineRequest.getId();
         ThrowUtils.throwIf("接口标识非法", id <= 0, ErrorCode.PARAMS_ERROR);
 
         InterfaceInfo oldInterfaceInfo = interfaceInfoService.getById(id);

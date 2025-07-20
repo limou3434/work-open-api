@@ -9,5 +9,12 @@ import com.baomidou.mybatisplus.extension.service.IService;
 * @createDate 2025-07-06 17:27:08
 */
 public interface InterfaceInfoService extends IService<InterfaceInfo> {
+
+    /**
+     * 校验接口信息表
+     * @param interfaceInfo 接口信息表
+     * @param add 是否添加
+     */
     void validInterfaceInfo(InterfaceInfo interfaceInfo, boolean add);
+
 }

@@ -13,11 +13,9 @@ public interface UserConstant {
     String USER_LOGIN_STATE = "userLoginState";
 
     /**
-     * 系统用户 id（虚拟用户）
+     * 系统用户 id(虚拟用户)
      */
     long SYSTEM_USER_ID = 0;
-
-    //  region 权限
 
     /**
      * 默认权限
@@ -29,5 +27,4 @@ public interface UserConstant {
      */
     String ADMIN_ROLE = "admin";
 
-    // endregion
 }
