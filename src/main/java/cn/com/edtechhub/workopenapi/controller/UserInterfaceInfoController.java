@@ -2,6 +2,7 @@ package cn.com.edtechhub.workopenapi.controller;
 
 import cn.com.edtechhub.workopenapi.common.exception.BusinessException;
 import cn.com.edtechhub.workopenapi.common.exception.ErrorCode;
+import cn.com.edtechhub.workopenapi.common.exception.ThrowUtils;
 import cn.com.edtechhub.workopenapi.common.response.BaseResponse;
 import cn.com.edtechhub.workopenapi.common.response.ResultUtils;
 import cn.com.edtechhub.workopenapi.constants.CommonConstant;
@@ -51,19 +52,22 @@ public class UserInterfaceInfoController {
     @SaCheckLogin
     @PostMapping("/add")
     public BaseResponse<Long> addUserInterfaceInfo(@RequestBody UserInterfaceInfoAddRequest userInterfaceInfoAddRequest) {
-        if (userInterfaceInfoAddRequest == null) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR, "");
-        }
+        // 校验参数
+        ThrowUtils.throwIf("请求体不能为空", userInterfaceInfoAddRequest == null, ErrorCode.PARAMS_ERROR);
+        assert userInterfaceInfoAddRequest != null;
+
+        // 业务处理
         UserInterfaceInfo userInterfaceInfo = new UserInterfaceInfo();
         BeanUtils.copyProperties(userInterfaceInfoAddRequest, userInterfaceInfo);
-        // 校验
+
         userInterfaceInfoService.validUserInterfaceInfo(userInterfaceInfo, true);
+
         User loginUser = userService.getLoginUser();
         userInterfaceInfo.setUserId(loginUser.getId());
         boolean result = userInterfaceInfoService.save(userInterfaceInfo);
-        if (!result) {
-            throw new BusinessException(ErrorCode.OPERATION_ERROR, "");
-        }
+        ThrowUtils.throwIf("操作失败", !result, ErrorCode.OPERATION_ERROR);
+
+        // 返回结果
         long newUserInterfaceInfoId = userInterfaceInfo.getId();
         return ResultUtils.success(newUserInterfaceInfoId);
     }
@@ -72,21 +76,23 @@ public class UserInterfaceInfoController {
     @SaCheckLogin
     @PostMapping("/delete")
     public BaseResponse<Boolean> deleteUserInterfaceInfo(@RequestBody DeleteRequest deleteRequest) {
-        if (deleteRequest == null || deleteRequest.getId() <= 0) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR, "");
-        }
-        User user = userService.getLoginUser();
+        // 参数校验
+        ThrowUtils.throwIf("请求体不能为空", deleteRequest == null, ErrorCode.PARAMS_ERROR);
+        assert deleteRequest != null;
+
+        ThrowUtils.throwIf("实体标识非法", deleteRequest.getId() <= 0, ErrorCode.PARAMS_ERROR);
+
+        // 业务处理
+        User user = userService.getLoginUser(); // 判断用户是否存在
         long id = deleteRequest.getId();
-        // 判断是否存在
         UserInterfaceInfo oldUserInterfaceInfo = userInterfaceInfoService.getById(id);
-        if (oldUserInterfaceInfo == null) {
-            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR, "");
-        }
-        // 仅本人或管理员可删除
-        if (!oldUserInterfaceInfo.getUserId().equals(user.getId()) && !userService.isAdminOfLoginUser()) {
-            throw new BusinessException(ErrorCode.NO_AUTH_ERROR, "");
-        }
+        ThrowUtils.throwIf("用户接口关联不存在", oldUserInterfaceInfo == null, ErrorCode.NOT_FOUND_ERROR);
+        assert oldUserInterfaceInfo != null;
+
+        ThrowUtils.throwIf("仅本人或管理员可删除", !oldUserInterfaceInfo.getUserId().equals(user.getId()) && !userService.isAdminOfLoginUser(), ErrorCode.NO_AUTH_ERROR);
         boolean b = userInterfaceInfoService.removeById(id);
+
+        // 返回结果
         return ResultUtils.success(b);
     }
 
@@ -94,25 +100,28 @@ public class UserInterfaceInfoController {
     @SaCheckLogin
     @PostMapping("/update")
     public BaseResponse<Boolean> updateUserInterfaceInfo(@RequestBody UserInterfaceInfoUpdateRequest userInterfaceInfoUpdateRequest) {
-        if (userInterfaceInfoUpdateRequest == null || userInterfaceInfoUpdateRequest.getId() <= 0) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR, "");
-        }
+        // 参数校验
+        ThrowUtils.throwIf("请求体不能为空", userInterfaceInfoUpdateRequest == null, ErrorCode.PARAMS_ERROR);
+        assert userInterfaceInfoUpdateRequest != null;
+
+        ThrowUtils.throwIf("用户接口关联标识非法", userInterfaceInfoUpdateRequest.getId() <= 0, ErrorCode.PARAMS_ERROR);
+
+        // 业务处理
         UserInterfaceInfo userInterfaceInfo = new UserInterfaceInfo();
         BeanUtils.copyProperties(userInterfaceInfoUpdateRequest, userInterfaceInfo);
-        // 参数校验
+
         userInterfaceInfoService.validUserInterfaceInfo(userInterfaceInfo, false);
-        User user = userService.getLoginUser();
+
+        User user = userService.getLoginUser(); // 判断用户是否存在
         long id = userInterfaceInfoUpdateRequest.getId();
-        // 判断是否存在
         UserInterfaceInfo oldUserInterfaceInfo = userInterfaceInfoService.getById(id);
-        if (oldUserInterfaceInfo == null) {
-            throw new BusinessException(ErrorCode.NOT_FOUND_ERROR, "");
-        }
-        // 仅本人或管理员可修改
-        if (!oldUserInterfaceInfo.getUserId().equals(user.getId()) && !userService.isAdminOfLoginUser()) {
-            throw new BusinessException(ErrorCode.NO_AUTH_ERROR, "");
-        }
+        ThrowUtils.throwIf("用户接口关联不存在", oldUserInterfaceInfo == null, ErrorCode.NOT_FOUND_ERROR);
+        assert oldUserInterfaceInfo != null;
+
+        ThrowUtils.throwIf("仅本人或管理员可修改", !oldUserInterfaceInfo.getUserId().equals(user.getId()) && !userService.isAdminOfLoginUser(), ErrorCode.NO_AUTH_ERROR);
         boolean result = userInterfaceInfoService.updateById(userInterfaceInfo);
+
+        // 返回结果
         return ResultUtils.success(result);
     }
 
@@ -120,10 +129,13 @@ public class UserInterfaceInfoController {
     @SaCheckLogin
     @GetMapping("/get")
     public BaseResponse<UserInterfaceInfo> getUserInterfaceInfoById(long id) {
-        if (id <= 0) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR, "");
-        }
+        // 参数校验
+        ThrowUtils.throwIf("用户接口关联标识非法", id <= 0, ErrorCode.PARAMS_ERROR);
+
+        // 业务处理
         UserInterfaceInfo userInterfaceInfo = userInterfaceInfoService.getById(id);
+
+        // 返回结果
         return ResultUtils.success(userInterfaceInfo);
     }
 
@@ -131,12 +143,18 @@ public class UserInterfaceInfoController {
     @SaCheckLogin
     @GetMapping("/list")
     public BaseResponse<List<UserInterfaceInfo>> listUserInterfaceInfo(UserInterfaceInfoQueryRequest userInterfaceInfoQueryRequest) {
+        // 参数校验
+        ThrowUtils.throwIf("请求体不能为空", userInterfaceInfoQueryRequest == null, ErrorCode.PARAMS_ERROR);
+        assert userInterfaceInfoQueryRequest != null;
+
+        // 业务处理
         UserInterfaceInfo userInterfaceInfoQuery = new UserInterfaceInfo();
-        if (userInterfaceInfoQueryRequest != null) {
-            BeanUtils.copyProperties(userInterfaceInfoQueryRequest, userInterfaceInfoQuery);
-        }
+        BeanUtils.copyProperties(userInterfaceInfoQueryRequest, userInterfaceInfoQuery);
+
         QueryWrapper<UserInterfaceInfo> queryWrapper = new QueryWrapper<>(userInterfaceInfoQuery);
         List<UserInterfaceInfo> userInterfaceInfoList = userInterfaceInfoService.list(queryWrapper);
+
+        // 返回结果
         return ResultUtils.success(userInterfaceInfoList);
     }
 
@@ -144,22 +162,26 @@ public class UserInterfaceInfoController {
     @SaCheckLogin
     @GetMapping("/list/page")
     public BaseResponse<Page<UserInterfaceInfo>> listUserInterfaceInfoByPage(UserInterfaceInfoQueryRequest userInterfaceInfoQueryRequest) {
-        if (userInterfaceInfoQueryRequest == null) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR, "");
-        }
+        // 参数校验
+        ThrowUtils.throwIf("请求体不能为空", userInterfaceInfoQueryRequest == null, ErrorCode.PARAMS_ERROR);
+        assert userInterfaceInfoQueryRequest != null;
+
+        // 业务处理
         UserInterfaceInfo userInterfaceInfoQuery = new UserInterfaceInfo();
         BeanUtils.copyProperties(userInterfaceInfoQueryRequest, userInterfaceInfoQuery);
+
         long current = userInterfaceInfoQueryRequest.getCurrent();
         long size = userInterfaceInfoQueryRequest.getPageSize();
         String sortField = userInterfaceInfoQueryRequest.getSortField();
         String sortOrder = userInterfaceInfoQueryRequest.getSortOrder();
-        // 限制爬虫
-        if (size > 50) {
-            throw new BusinessException(ErrorCode.PARAMS_ERROR, "");
-        }
+
+        ThrowUtils.throwIf("不允许一次获取过多数据", size > 50, ErrorCode.PARAMS_ERROR);
+
         QueryWrapper<UserInterfaceInfo> queryWrapper = new QueryWrapper<>(userInterfaceInfoQuery);
         queryWrapper.orderBy(StringUtils.isNotBlank(sortField), sortOrder.equals(CommonConstant.SORT_ORDER_ASC), sortField);
         Page<UserInterfaceInfo> userInterfaceInfoPage = userInterfaceInfoService.page(new Page<>(current, size), queryWrapper);
+
+        // 返回结果
         return ResultUtils.success(userInterfaceInfoPage);
     }
 
