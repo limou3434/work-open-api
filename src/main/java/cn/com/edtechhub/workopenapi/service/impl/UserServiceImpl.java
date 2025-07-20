@@ -140,6 +140,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
                 .eq(User::getUserPassword, this.encryptedPasswd(passwd));
         User user = this.getOne(lambdaQueryWrapper);
         log.debug("当前请求登录的用户 {}", user);
+        ThrowUtils.throwIf("用户校验不通过", user == null, ErrorCode.NOT_FOUND_ERROR);
         return user;
     }
 

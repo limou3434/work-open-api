@@ -168,6 +168,14 @@
             <version>3.5.11</version>
         </dependency>
 
+        <!-- Druid: https://github.com/alibaba/druid/ -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.2.23</version>
+        </dependency>
+
+        <!-- 拓展依赖 -->
         <!-- Sa-Token: https://sa-token.cc/doc.html#/ -->
         <dependency>
             <!-- Sa-Token 整合依赖 -->
@@ -188,14 +196,6 @@
             <version>1.42.0</version>
         </dependency>
 
-        <!-- Druid: https://github.com/alibaba/druid/ -->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.2.23</version>
-        </dependency>
-
-        <!-- 拓展依赖 -->
         <!-- Tencent COS: https://cloud.tencent.com/document/product/436/10199 -->
         <!--        <dependency>-->
         <!--            <groupId>com.qcloud</groupId>-->
