@@ -1,5 +1,6 @@
 package cn.com.edtechhub.workopenapi.model.request.user;
 
+import cn.com.edtechhub.workopenapi.common.request.PageRequest;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

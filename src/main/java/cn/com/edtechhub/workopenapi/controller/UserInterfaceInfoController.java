@@ -7,7 +7,7 @@ import cn.com.edtechhub.workopenapi.common.response.ResultUtils;
 import cn.com.edtechhub.workopenapi.constants.CommonConstant;
 import cn.com.edtechhub.workopenapi.model.entity.User;
 import cn.com.edtechhub.workopenapi.model.entity.UserInterfaceInfo;
-import cn.com.edtechhub.workopenapi.model.request.DeleteRequest;
+import cn.com.edtechhub.workopenapi.common.request.DeleteRequest;
 import cn.com.edtechhub.workopenapi.model.request.userinterfaceinfo.UserInterfaceInfoAddRequest;
 import cn.com.edtechhub.workopenapi.model.request.userinterfaceinfo.UserInterfaceInfoQueryRequest;
 import cn.com.edtechhub.workopenapi.model.request.userinterfaceinfo.UserInterfaceInfoUpdateRequest;

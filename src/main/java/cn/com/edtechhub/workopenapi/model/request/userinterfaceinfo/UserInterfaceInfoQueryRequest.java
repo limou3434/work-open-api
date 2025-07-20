@@ -1,6 +1,6 @@
 package cn.com.edtechhub.workopenapi.model.request.userinterfaceinfo;
 
-import cn.com.edtechhub.workopenapi.model.request.user.PageRequest;
+import cn.com.edtechhub.workopenapi.common.request.PageRequest;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

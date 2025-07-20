@@ -1,4 +1,4 @@
-package cn.com.edtechhub.workopenapi.model.request;
+package cn.com.edtechhub.workopenapi.common.request;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;

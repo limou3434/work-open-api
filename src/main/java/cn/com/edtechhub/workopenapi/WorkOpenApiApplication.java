@@ -5,6 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
+/**
+ * 项目启动类
+ *
+ * @author <a href="https://github.com/limou3434">limou3434</a>
+ */
 @SpringBootApplication
 @Slf4j
 public class WorkOpenApiApplication {
@@ -15,21 +20,21 @@ public class WorkOpenApiApplication {
      * @param args 启动参数
      */
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(WorkOpenApiApplication.class, args);
+        /* ConfigurableApplicationContext context = */ SpringApplication.run(WorkOpenApiApplication.class, args);
         log.debug(
-                "Spring Boot 正常启动\n" +
-                        "=======================================================================================================\n" +
+                "Spring Boot 正常启动, 若在开发阶段可以参考下面的操作\n" +
+                        "===============================================================================================================================\n" +
                         "访问 {} 或 {} 获取在线调试文档\n" +
                         "访问 {} 即获取在线文档配置 json\n" +
-                        "可以使用 {} 分析慢查语句, 参考 {}\n" +
-                        "可以使用 {} 分析调用堆栈, 参考 {}\n" +
-                        "可以使用 {} 分析响应时长, 参考 {}\n" +
-                        "======================================================================================================="
+                        "(1)可以使用 {} 分析慢查语句, 参考 {}\n" +
+                        "(2)可以使用 {} 分析调用堆栈, 参考 {}\n" +
+                        "(3)可以使用 {} 分析响应时长, 参考 {}\n" +
+                        "==============================================================================================================================="
                 , "http://127.0.0.1:8000/doc.html"
                 , "http://127.0.0.1:8000/swagger-ui/index.html"
                 , "http://127.0.0.1:8000/v3/api-docs"
                 , "http://127.0.0.1:8000/druid/login.html", "https://github.com/alibaba/druid/wiki/"
-                , "本项目父目录下的脚本文件 ", "https://www.ruanyifeng.com/blog/2017/09/flame-graph.html"
+                , "本项目父目录下的脚本文件 ./flame_diagram.sh", "https://www.ruanyifeng.com/blog/2017/09/flame-graph.html"
                 , "谷歌浏览器 F12 处的 Network 选项卡", "https://developer.chrome.com/docs?hl=zh-cn"
         );
     }

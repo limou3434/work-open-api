@@ -1,4 +1,4 @@
-package cn.com.edtechhub.workopenapi.model.request.user;
+package cn.com.edtechhub.workopenapi.common.request;
 
 import cn.com.edtechhub.workopenapi.constants.CommonConstant;
 import lombok.Data;

@@ -11,7 +11,7 @@ import cn.com.edtechhub.workopenapi.enums.InterfaceInfoStatusEnum;
 import cn.com.edtechhub.workopenapi.model.dto.IdRequest;
 import cn.com.edtechhub.workopenapi.model.entity.InterfaceInfo;
 import cn.com.edtechhub.workopenapi.model.entity.User;
-import cn.com.edtechhub.workopenapi.model.request.DeleteRequest;
+import cn.com.edtechhub.workopenapi.common.request.DeleteRequest;
 import cn.com.edtechhub.workopenapi.model.request.interfaceinfo.InterfaceInfoAddRequest;
 import cn.com.edtechhub.workopenapi.model.request.interfaceinfo.InterfaceInfoQueryRequest;
 import cn.com.edtechhub.workopenapi.model.request.interfaceinfo.InterfaceInfoUpdateRequest;

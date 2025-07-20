@@ -104,7 +104,7 @@ export default defineConfig({
   openAPI: [
     {
       requestLibPath: "import { request } from '@umijs/max'",
-      schemaPath: 'http://127.0.0.1:8000/api/v3/api-docs',
+      schemaPath: 'http://127.0.0.1:8000/v3/api-docs',
       projectName: 'yuapi-backend',
     },
   ],

@@ -13,19 +13,48 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 跨域共享配置
+ * 跨域共享配置, 可以通过外部的应用配置文件来进行配置, 但是需要重启才能生效
  *
  * @author <a href="https://github.com/limou3434">limou3434</a>
  */
 @Configuration
 @Slf4j
-public class CrossDomainConfig implements WebMvcConfigurer {
+public class CrossDomainConfig implements WebMvcConfigurer, Config {
+
+    // TODO: 后续更改为配置文件来进行跨域配置
+    /**
+     * 开发环境客户端主机
+     */
+    private static final String DEVELOPMENT_CLIENT_HOST = "http://127.0.0.1:8080";
+
+    /**
+     * 测试环境客户端主机
+     */
+    private static final String RELEASE_CLIENT_HOST = "http://测试主机IP:分配到的端口号300x";
+
+    /**
+     * 生产环境客户端主机
+     */
+    private static final String PRODUCTION_CLIENT_HOST = "https://xxx.edtechhub.com.cn";
 
     /**
      * 注入请求日志拦截切面依赖
      */
     @Resource
     private RequestLogAOP requestLogAOP;
+
+    /**
+     * 打印配置
+     */
+    @PostConstruct
+    @Override
+    public void printConfig() {
+        log.debug(
+                "[{}] 加载成功: {}",
+                this.getClass().getName(),
+                "配置允许跨域的 3 个主机, 对应三个环境: " + this.getCorsRule()
+        );
+    }
 
     /**
      * 配合切面拦截所有接口调用以提供详细的访问日志打印
@@ -53,18 +82,10 @@ public class CrossDomainConfig implements WebMvcConfigurer {
      */
     private List<String> getCorsRule() {
         return Arrays.asList(
-                "http://127.0.0.1:3000", // 开发环境
-                "http://测试主机IP:分配到的端口号300x", // 测试环境
-                "https://xxx.edtechhub.com.cn" // 生产环境
+                DEVELOPMENT_CLIENT_HOST,
+                RELEASE_CLIENT_HOST,
+                PRODUCTION_CLIENT_HOST
         );
-    }
-
-    /**
-     * 打印配置
-     */
-    @PostConstruct
-    public void printConfig() {
-        log.debug("当前项目 Cors 跨域规则为 {}", this.getCorsRule());
     }
 
 }

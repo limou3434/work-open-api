@@ -253,7 +253,7 @@
         <!--            <systemPath>${project.basedir}/lib/hotkey-client-0.0.4-SNAPSHOT-jar-with-dependencies.jar</systemPath>-->
         <!--        </dependency>-->
 
-        <!-- 特殊依赖 -->
+        <!-- 开发依赖 -->
         <!-- OApiCli SDK -->
         <dependency>
             <groupId>cn.com.edtechhub</groupId>

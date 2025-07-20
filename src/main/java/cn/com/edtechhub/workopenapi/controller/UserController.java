@@ -5,7 +5,7 @@ import cn.com.edtechhub.workopenapi.common.exception.ThrowUtils;
 import cn.com.edtechhub.workopenapi.common.response.BaseResponse;
 import cn.com.edtechhub.workopenapi.common.response.ResultUtils;
 import cn.com.edtechhub.workopenapi.model.entity.User;
-import cn.com.edtechhub.workopenapi.model.request.DeleteRequest;
+import cn.com.edtechhub.workopenapi.common.request.DeleteRequest;
 import cn.com.edtechhub.workopenapi.model.request.user.*;
 import cn.com.edtechhub.workopenapi.model.vo.UserVO;
 import cn.com.edtechhub.workopenapi.service.UserService;
