@@ -37,6 +37,11 @@ public class InterfaceInfo implements Serializable {
     private String url;
 
     /**
+     * 调用参数
+     */
+    private String requestParams;
+
+    /**
      * 接口请求头
      */
     private String requestHeader;
@@ -95,6 +100,7 @@ public class InterfaceInfo implements Serializable {
             && (this.getName() == null ? other.getName() == null : this.getName().equals(other.getName()))
             && (this.getDescription() == null ? other.getDescription() == null : this.getDescription().equals(other.getDescription()))
             && (this.getUrl() == null ? other.getUrl() == null : this.getUrl().equals(other.getUrl()))
+            && (this.getRequestParams() == null ? other.getRequestParams() == null : this.getRequestParams().equals(other.getRequestParams()))
             && (this.getRequestHeader() == null ? other.getRequestHeader() == null : this.getRequestHeader().equals(other.getRequestHeader()))
             && (this.getResponseHeader() == null ? other.getResponseHeader() == null : this.getResponseHeader().equals(other.getResponseHeader()))
             && (this.getStatus() == null ? other.getStatus() == null : this.getStatus().equals(other.getStatus()))
@@ -113,6 +119,7 @@ public class InterfaceInfo implements Serializable {
         result = prime * result + ((getName() == null) ? 0 : getName().hashCode());
         result = prime * result + ((getDescription() == null) ? 0 : getDescription().hashCode());
         result = prime * result + ((getUrl() == null) ? 0 : getUrl().hashCode());
+        result = prime * result + ((getRequestParams() == null) ? 0 : getRequestParams().hashCode());
         result = prime * result + ((getRequestHeader() == null) ? 0 : getRequestHeader().hashCode());
         result = prime * result + ((getResponseHeader() == null) ? 0 : getResponseHeader().hashCode());
         result = prime * result + ((getStatus() == null) ? 0 : getStatus().hashCode());
@@ -134,6 +141,7 @@ public class InterfaceInfo implements Serializable {
         sb.append(", name=").append(name);
         sb.append(", description=").append(description);
         sb.append(", url=").append(url);
+        sb.append(", requestParams=").append(requestParams);
         sb.append(", requestHeader=").append(requestHeader);
         sb.append(", responseHeader=").append(responseHeader);
         sb.append(", status=").append(status);
