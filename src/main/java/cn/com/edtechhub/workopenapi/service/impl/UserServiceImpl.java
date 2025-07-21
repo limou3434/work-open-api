@@ -8,6 +8,8 @@ import cn.com.edtechhub.workopenapi.model.entity.User;
 import cn.com.edtechhub.workopenapi.service.UserService;
 import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.StpUtil;
+import cn.hutool.core.util.RandomUtil;
+import cn.hutool.crypto.digest.DigestUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -42,10 +44,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         ThrowUtils.throwIf("确认密码不能为空", StringUtils.isBlank(checkPassword), ErrorCode.PARAMS_ERROR);
         ThrowUtils.throwIf("用户密码与确认密码不一致", !userPassword.equals(checkPassword), ErrorCode.PARAMS_ERROR);
 
+        String accessKey = DigestUtil.md5Hex(SALT + userAccount + RandomUtil.randomNumbers(5));
+        String secretKey = DigestUtil.md5Hex(SALT + userAccount + RandomUtil.randomNumbers(8));
+
         User user = new User();
         user.setUserAccount(userAccount);
         user.setUserPassword(this.encryptedPasswd(userPassword));
         user.setUserRole(UserConstant.DEFAULT_ROLE);
+        user.setAccessKey(accessKey);
+        user.setSecretKey(secretKey);
+
         boolean result = this.save(user);
         ThrowUtils.throwIf("操作失败", !result, ErrorCode.OPERATION_ERROR);
 

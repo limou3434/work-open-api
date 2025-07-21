@@ -1,6 +1,7 @@
 package cn.com.edtechhub.workopenapi.controller;
 
 import cn.com.edtechhub.workoapiclisdk.client.ApiClient;
+import cn.com.edtechhub.workopenapi.common.exception.BusinessException;
 import cn.com.edtechhub.workopenapi.common.exception.ErrorCode;
 import cn.com.edtechhub.workopenapi.common.exception.ThrowUtils;
 import cn.com.edtechhub.workopenapi.common.request.DeleteRequest;
@@ -10,10 +11,7 @@ import cn.com.edtechhub.workopenapi.constants.CommonConstant;
 import cn.com.edtechhub.workopenapi.model.entity.InterfaceInfo;
 import cn.com.edtechhub.workopenapi.model.entity.User;
 import cn.com.edtechhub.workopenapi.model.enums.InterfaceInfoStatusEnum;
-import cn.com.edtechhub.workopenapi.model.request.interfaceinfo.InterfaceInfoAddRequest;
-import cn.com.edtechhub.workopenapi.model.request.interfaceinfo.InterfaceInfoOnlineRequest;
-import cn.com.edtechhub.workopenapi.model.request.interfaceinfo.InterfaceInfoQueryRequest;
-import cn.com.edtechhub.workopenapi.model.request.interfaceinfo.InterfaceInfoUpdateRequest;
+import cn.com.edtechhub.workopenapi.model.request.interfaceinfo.*;
 import cn.com.edtechhub.workopenapi.service.InterfaceInfoService;
 import cn.com.edtechhub.workopenapi.service.UserService;
 import cn.dev33.satoken.annotation.SaCheckLogin;
@@ -27,6 +25,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -57,8 +56,6 @@ public class InterfaceInfoController {
     @Resource
     private InterfaceInfoService interfaceInfoService;
 
-    /// 增删查改 ///
-
     @Operation(summary = "创建接口信息")
     @SaCheckLogin
     @PostMapping("/add")
@@ -75,6 +72,8 @@ public class InterfaceInfoController {
 
         User loginUser = userService.getLoginUser();
         interfaceInfo.setUserId(loginUser.getId());
+        interfaceInfo.setStatus(InterfaceInfoStatusEnum.OFFLINE.getValue());
+
         boolean result = interfaceInfoService.save(interfaceInfo);
         ThrowUtils.throwIf("操作失败", !result, ErrorCode.OPERATION_ERROR);
 
@@ -86,7 +85,7 @@ public class InterfaceInfoController {
     @Operation(summary = "删除接口信息")
     @SaCheckLogin
     @PostMapping("/delete")
-    public BaseResponse<Boolean> deleteInterfaceInfo(@RequestBody DeleteRequest deleteRequest) { // TODO: 删除接口可能需要修改仅本人和管理可以使用, 最好写一个拓展注解
+    public BaseResponse<Boolean> deleteInterfaceInfo(@RequestBody DeleteRequest deleteRequest) {
         // 校验参数
         ThrowUtils.throwIf("请求体不能为空", deleteRequest == null, ErrorCode.PARAMS_ERROR);
         assert deleteRequest != null;
@@ -142,7 +141,7 @@ public class InterfaceInfoController {
         return ResultUtils.success(interfaceInfo);
     }
 
-    @Operation(summary = "获取接口信息列表")
+    @Operation(summary = "👑获取接口信息列表")
     @SaCheckLogin
     @SaCheckRole("admin")
     @GetMapping("/list")
@@ -194,8 +193,6 @@ public class InterfaceInfoController {
         return ResultUtils.success(interfaceInfoPage);
     }
 
-    /// 功能接口 ///
-
     @Operation(summary = "👑发布接口")
     @SaCheckLogin
     @SaCheckRole("admin")
@@ -209,7 +206,7 @@ public class InterfaceInfoController {
         ThrowUtils.throwIf("该接口不存在", oldInterfaceInfo == null, ErrorCode.NOT_FOUND_ERROR);
 
         // 业务处理
-        // 1. 需要判断是否可以调用接口
+        // 1. 需要判断是否可以调用接口 TODO: 这里先模拟一下，搞个假数据
         cn.com.edtechhub.workoapiclisdk.model.User user = new cn.com.edtechhub.workoapiclisdk.model.User();
         user.setUsername("test");
         String username = apiClient.getNameByPostWithRestful(user); // TODO: 这样相当于硬编码的, 后续需要改进

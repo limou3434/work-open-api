@@ -39,8 +39,6 @@ public class UserController {
     @Resource
     private UserService userService;
 
-    /// 增删查改 ///
-
     @Operation(summary = "创建用户")
     @SaCheckLogin
     @SaCheckRole("admin")
@@ -169,8 +167,6 @@ public class UserController {
         // 返回结果
         return ResultUtils.success(userVOPage);
     }
-
-    /// 功能接口 ///
 
     @Operation(summary = "用户注册")
     @SaIgnore

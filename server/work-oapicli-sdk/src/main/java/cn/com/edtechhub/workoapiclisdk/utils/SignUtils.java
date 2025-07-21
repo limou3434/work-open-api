@@ -5,6 +5,8 @@ import cn.hutool.crypto.digest.Digester;
 
 /**
  * 签名工具
+ *
+ * @author <a href="https://github.com/limou3434">limou3434</a>
  */
 public class SignUtils {
 

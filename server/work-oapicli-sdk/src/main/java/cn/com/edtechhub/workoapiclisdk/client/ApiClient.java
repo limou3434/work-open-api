@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * 给引入本 sdk 用户提供的客户端
  *
- * @author limou
+ * @author <a href="https://github.com/limou3434">limou3434</a>
  */
 public class ApiClient {
 

@@ -14,6 +14,8 @@ import org.springframework.context.annotation.Configuration;
  * Spring Boot 将会在应用启动时自动加载和实例化 WorkOapicliSdkConfig 并将其应用于我们的应用程序中
  * 这样我们就可以使用自动配置生成的 apiClient 对象, 而无需手动创建和配置
  * 这种是 Spring Framework 提供的底层 SPI 扩展机制的一部分
+ *
+ * @author <a href="https://github.com/limou3434">limou3434</a>
  */
 @Configuration // 通过 @Configuration 注解, 将该类标记为一个配置类, 告诉 Spring 这是一个用于配置的类
 @ConfigurationProperties("work.oapicli.sdk") // 读取用户的 application.yaml 配置中前缀为 "work.oapicli.sdk" 的配置
@@ -32,11 +34,10 @@ public class WorkOapicliSdkConfig {
     private String secretKey;
 
     /**
-     * 制作客户端 Bean
+     * 构造方法
      *
-     * @return 客户端
+     * @return 根据依赖者的配置文件来自动配置好的 API 客户端
      */
-
     @Bean
     public ApiClient apiClient() {
         return new ApiClient(this.accessKey, this.secretKey);
